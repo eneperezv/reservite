@@ -35,12 +35,12 @@ public class UserController {
 			}
 			return new ResponseEntity<User>(result, HttpStatus.OK);
 		}catch(Exception e){
-			ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.NO_CONTENT.toString(),"INTERNAL SERVER ERROR");
+			ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.INTERNAL_SERVER_ERROR.toString(),"INTERNAL SERVER ERROR");
 			return new ResponseEntity<ErrorDetails>(err, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
-	@PostMapping("/user/create")
+	@PostMapping("/user")
 	public ResponseEntity<?> createUsuario(@RequestBody User user){
 		User savedUser;
 		try{
@@ -56,10 +56,10 @@ public class UserController {
 		}
 	}
 	
-	@PutMapping("/user/update")
+	@PutMapping("/user")
 	public ResponseEntity<?> updateUsuario(@RequestBody User user) {
 	    try {
-	    	User result = userService.findByUsuario(user.getUsername());
+	    	User result = userService.findByIdUsuario(user.getId());
 	        if (result == null) {
 	            ErrorDetails err = new ErrorDetails(new Date(), HttpStatus.NOT_FOUND.toString(), "Usuario <" + user.getUsername() + "> no existe");
 	            return new ResponseEntity<>(err, HttpStatus.NOT_FOUND);
