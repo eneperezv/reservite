@@ -41,7 +41,7 @@ import com.enp.reservite.api.service.ClientService;
 @RequestMapping("/api/v1/reservite")
 public class ClientController {
 	
-private static final Logger logger = LoggerFactory.getLogger(ClientController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ClientController.class);
 	
 	@Autowired
 	ClientService clientService;

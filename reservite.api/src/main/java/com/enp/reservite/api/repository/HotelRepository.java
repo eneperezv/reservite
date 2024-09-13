@@ -1,7 +1,7 @@
 package com.enp.reservite.api.repository;
 
 /*
- * @(#)ClientRepository.java 1.0 12/09/2024
+ * @(#)HotelRepository.java 1.0 12/09/2024
  * 
  * El código implementado en este formulario esta protegido
  * bajo las leyes internacionales del Derecho de Autor, sin embargo
@@ -10,23 +10,17 @@ package com.enp.reservite.api.repository;
  */
 
 /**
- * Interfase Repository para gestion de la persistencia JPA de Clientes
+ * Interfase Repository para gestion de la persistencia JPA de Hoteles
  *
  * @author eliezer.navarro
  * @version 1.0 | 12/09/2024
  * @since 1.0
  */
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
-import com.enp.reservite.api.entity.Client;
+import com.enp.reservite.api.entity.Hotel;
 
-public interface ClientRepository extends JpaRepository<Client,Long> {
-	
-	@Query(value = "SELECT c.* FROM dbo_client c WHERE c.name LIKE %:nombre%", nativeQuery = true)
-	List<Client> findByNombre(String nombre);
+public interface HotelRepository extends JpaRepository<Hotel,Long> {
 
 }
