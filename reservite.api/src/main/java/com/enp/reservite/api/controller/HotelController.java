@@ -49,7 +49,6 @@ public class HotelController {
 			savedHotel = hotelService.save(hotel);
 			if(savedHotel == null) {
 				ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.NOT_FOUND.toString(),"Hotel <"+hotel+"> no existe");
-				logger.error(err.toString());
 				return new ResponseEntity<ErrorDetails>(err,HttpStatus.NOT_FOUND);
 			}
 			return new ResponseEntity<Hotel>(savedHotel, HttpStatus.CREATED);

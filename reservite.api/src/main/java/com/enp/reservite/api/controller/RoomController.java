@@ -1,22 +1,5 @@
 package com.enp.reservite.api.controller;
 
-/*
- * @(#)ClientController.java 1.0 12/09/2024
- * 
- * El código implementado en este formulario esta protegido
- * bajo las leyes internacionales del Derecho de Autor, sin embargo
- * se entrega bajo las condiciones de la General Public License (GNU GPLv3)
- * descrita en https://www.gnu.org/licenses/gpl-3.0.html
- */
-
-/**
- * Clase controller para gestion de clientes
- *
- * @author eliezer.navarro
- * @version 1.0 | 12/09/2024
- * @since 1.0
- */
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,38 +18,39 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.enp.reservite.api.entity.Client;
 import com.enp.reservite.api.entity.ErrorDetails;
-import com.enp.reservite.api.service.ClientService;
+import com.enp.reservite.api.entity.Room;
+import com.enp.reservite.api.service.RoomService;
 
 @RestController
 @RequestMapping("/api/v1/reservite")
-public class ClientController {
+public class RoomController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(ClientController.class);
+	private static final Logger logger = LoggerFactory.getLogger(RoomController.class);
 	
 	@Autowired
-	ClientService clientService;
+	RoomService roomService;
 	
-	@PostMapping("/client/create")
-	public ResponseEntity<?> createUsuario(@RequestBody Client client){
-		Client savedClient;
+	@PostMapping("/room/create")
+	public ResponseEntity<?> createUsuario(@RequestBody Room room){
+		Room savedRoom;
 		try{
-			savedClient = clientService.save(client);
-			if(savedClient == null) {
-				ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.NOT_FOUND.toString(),"Cliente <"+client+"> no existe");
+			savedRoom = roomService.save(room);
+			if(savedRoom == null) {
+				ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.NOT_FOUND.toString(),"Room <"+room+"> no existe");
 				return new ResponseEntity<ErrorDetails>(err,HttpStatus.NOT_FOUND);
 			}
-			return new ResponseEntity<Client>(savedClient, HttpStatus.CREATED);
+			return new ResponseEntity<Room>(savedRoom, HttpStatus.CREATED);
 		}catch(Exception e){
 			ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.INTERNAL_SERVER_ERROR.toString(),"INTERNAL SERVER ERROR");
 			return new ResponseEntity<ErrorDetails>(err, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
-	@GetMapping("/client/by-nombre/{nombre}")
-	public ResponseEntity<?> findClienteByNombre(@PathVariable("nombre") String nombre){
-		List<Client> lista = new ArrayList<Client>();
+	@GetMapping("/room/by-number/{roomnumber}")
+	public ResponseEntity<?> findRoomByRoomNumber(@PathVariable("roomnumber") String roomnumber){
+		List<Room> lista = new ArrayList<Room>();
 		try{
-			clientService.findByNombre(nombre).forEach(lista::add);
+			roomService.findRoomByRoomNumber(roomnumber).forEach(lista::add);
 			if(lista.isEmpty()) {
 				ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.OK.toString(),"NO CONTENT");
 				return new ResponseEntity<>(err,HttpStatus.OK);
