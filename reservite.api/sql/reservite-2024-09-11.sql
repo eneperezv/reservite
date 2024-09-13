@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2024 a las 05:23:04
+-- Tiempo de generación: 12-09-2024 a las 05:15:41
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -31,19 +31,11 @@ USE `reservite`;
 
 CREATE TABLE `dbo_client` (
   `id_client` bigint(20) NOT NULL,
-  `address` varchar(350) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `phone` varchar(50) DEFAULT NULL
+  `address` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `dbo_client`
---
-
-INSERT INTO `dbo_client` (`id_client`, `address`, `email`, `name`, `phone`) VALUES
-(1, 'Calle 152', 'nela@hotmail.com', 'Daniela Sanchez', '5556969'),
-(2, 'Calle 236', 'nela123@gmail.com', 'Daniela Rodriguez', '4525555');
 
 -- --------------------------------------------------------
 
@@ -134,7 +126,7 @@ ALTER TABLE `dbo_users`
 -- AUTO_INCREMENT de la tabla `dbo_client`
 --
 ALTER TABLE `dbo_client`
-  MODIFY `id_client` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_client` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `dbo_hotel`

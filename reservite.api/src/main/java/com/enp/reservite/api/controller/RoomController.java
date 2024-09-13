@@ -1,5 +1,22 @@
 package com.enp.reservite.api.controller;
 
+/*
+ * @(#)RoomController.java 1.0 12/09/2024
+ * 
+ * El código implementado en este formulario esta protegido
+ * bajo las leyes internacionales del Derecho de Autor, sin embargo
+ * se entrega bajo las condiciones de la General Public License (GNU GPLv3)
+ * descrita en https://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+/**
+ * Clase controller para gestion de habitaciones
+ *
+ * @author eliezer.navarro
+ * @version 1.0 | 12/09/2024
+ * @since 1.0
+ */
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,7 +33,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.enp.reservite.api.entity.Client;
 import com.enp.reservite.api.entity.ErrorDetails;
 import com.enp.reservite.api.entity.Room;
 import com.enp.reservite.api.service.RoomService;
