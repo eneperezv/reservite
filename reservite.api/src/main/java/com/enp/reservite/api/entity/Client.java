@@ -35,16 +35,16 @@ public class Client {
 	@Column(name="id_client", unique=true, nullable=false)
 	private Long id;
 	
-	@Column(name="name")
+	@Column(name="name", length = 100)
 	private String name;
 	
-	@Column(name="email")
+	@Column(name="email", length = 100)
 	private String email;
 	
-	@Column(name="address")
+	@Column(name="address", length = 350)
 	private String address;
 	
-	@Column(name="phone")
+	@Column(name="phone", length = 50)
 	private String phone;
 	
 	public Client() {
