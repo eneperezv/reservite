@@ -57,6 +57,9 @@ public class Room {
 	@Column(name="description", length = 1500)
 	private String description;
 	
+	@Column(name="roomnumber", length = 5)
+	private String roomnumber;
+	
 	@Column(name="status")
 	private Long status; //1-DISPONIBLE | 0-OCUPADA
 	
@@ -64,13 +67,15 @@ public class Room {
 		
 	}
 
-	public Room(Hotel hotel, Long floor, Long number, Long capacity, String description, Long status) {
+	public Room(Hotel hotel, Long floor, Long number, Long capacity, String description, String roomnumber,
+			Long status) {
 		super();
 		this.hotel = hotel;
 		this.floor = floor;
 		this.number = number;
 		this.capacity = capacity;
 		this.description = description;
+		this.roomnumber = roomnumber;
 		this.status = status;
 	}
 
@@ -122,6 +127,14 @@ public class Room {
 		this.description = description;
 	}
 
+	public String getRoomnumber() {
+		return roomnumber;
+	}
+
+	public void setRoomnumber(String roomnumber) {
+		this.roomnumber = roomnumber;
+	}
+
 	public Long getStatus() {
 		return status;
 	}
@@ -133,7 +146,7 @@ public class Room {
 	@Override
 	public String toString() {
 		return "Room [id=" + id + ", hotel=" + hotel + ", floor=" + floor + ", number=" + number + ", capacity="
-				+ capacity + ", description=" + description + ", status=" + status + "]";
+				+ capacity + ", description=" + description + ", roomnumber=" + roomnumber + ", status=" + status + "]";
 	}
 
 }
