@@ -40,7 +40,7 @@ public class Room {
 	@Column(name="id_room", unique=true, nullable=false)
 	private Long id;
 	
-	@JoinColumn(name = "hotel", nullable = false)
+	@JoinColumn(name = "id_hotel", nullable = false)
 	@ManyToOne(targetEntity=Hotel.class, fetch=FetchType.LAZY)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Hotel hotel;
@@ -57,17 +57,21 @@ public class Room {
 	@Column(name="description", length = 1500)
 	private String description;
 	
+	@Column(name="status")
+	private Long status; //1-DISPONIBLE | 0-OCUPADA
+	
 	public Room() {
 		
 	}
 
-	public Room(Hotel hotel, Long floor, Long number, Long capacity, String description) {
+	public Room(Hotel hotel, Long floor, Long number, Long capacity, String description, Long status) {
 		super();
 		this.hotel = hotel;
 		this.floor = floor;
 		this.number = number;
 		this.capacity = capacity;
 		this.description = description;
+		this.status = status;
 	}
 
 	public Long getId() {
@@ -118,10 +122,18 @@ public class Room {
 		this.description = description;
 	}
 
+	public Long getStatus() {
+		return status;
+	}
+
+	public void setStatus(Long status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "Room [id=" + id + ", hotel=" + hotel + ", floor=" + floor + ", number=" + number + ", capacity="
-				+ capacity + ", description=" + description + "]";
+				+ capacity + ", description=" + description + ", status=" + status + "]";
 	}
 
 }

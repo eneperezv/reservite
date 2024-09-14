@@ -46,7 +46,7 @@ public class ClientController {
 	@Autowired
 	ClientService clientService;
 	
-	@PostMapping("/client/create")
+	@PostMapping("/client")
 	public ResponseEntity<?> createUsuario(@RequestBody Client client){
 		Client savedClient;
 		try{

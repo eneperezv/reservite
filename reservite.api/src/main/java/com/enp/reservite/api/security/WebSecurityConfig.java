@@ -62,15 +62,19 @@ public class WebSecurityConfig {
                     //registry.requestMatchers("/v3/api-docs/**").permitAll();
                     registry.requestMatchers(HttpMethod.POST, "/api/v1/reservite/auth").permitAll();
                     //USER
-                    registry.requestMatchers(HttpMethod.GET,  "/api/v1/taskflow/user/**").hasRole("USER");
-                    registry.requestMatchers(HttpMethod.POST, "/api/v1/taskflow/user").hasRole("USER");
-                    registry.requestMatchers(HttpMethod.PUT,  "/api/v1/taskflow/user").hasRole("USER");
-                    //TASK
-                    /*
-                    registry.requestMatchers(HttpMethod.GET,  "/api/v1/taskflow/task").hasRole("USER");
-                    registry.requestMatchers(HttpMethod.POST, "/api/v1/taskflow/task").hasRole("USER");
-                    registry.requestMatchers(HttpMethod.PUT,  "/api/v1/taskflow/task").hasRole("USER");
+                    registry.requestMatchers(HttpMethod.GET,  "/api/v1/reservite/user/**").hasRole("USER");
+                    registry.requestMatchers(HttpMethod.POST, "/api/v1/reservite/user").hasRole("USER");
+                    registry.requestMatchers(HttpMethod.PUT,  "/api/v1/reservite/user").hasRole("USER");
+                    //CLIENT
+                    registry.requestMatchers(HttpMethod.POST, "/api/v1/reservite/client").hasRole("USER");
+                    registry.requestMatchers(HttpMethod.GET,  "/api/v1/reservite/client/by-nombre/**").hasRole("USER");
+                    //HOTEL
+                    registry.requestMatchers(HttpMethod.POST, "/api/v1/reservite/hotel").hasRole("USER");
+                    //ROOM
+                    registry.requestMatchers(HttpMethod.POST, "/api/v1/reservite/room").hasRole("USER");
+                    registry.requestMatchers(HttpMethod.GET,  "/api/v1/reservite/room/by-number/**").hasRole("USER");
                     //TASKFOLLOWUP
+                    /*
                     registry.requestMatchers(HttpMethod.GET,  "/api/v1/taskflow/task/followup/**").hasRole("USER");
                     registry.requestMatchers(HttpMethod.POST, "/api/v1/taskflow/task/followup").hasRole("USER");
                     registry.requestMatchers(HttpMethod.PUT,  "/api/v1/taskflow/task/followup").hasRole("USER");

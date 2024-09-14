@@ -46,7 +46,7 @@ public class RoomController {
 	@Autowired
 	RoomService roomService;
 	
-	@PostMapping("/room/create")
+	@PostMapping("/room")
 	public ResponseEntity<?> createUsuario(@RequestBody Room room){
 		Room savedRoom;
 		try{

@@ -42,7 +42,7 @@ public class HotelController {
 	@Autowired
 	HotelService hotelService;
 	
-	@PostMapping("/hotel/create")
+	@PostMapping("/hotel")
 	public ResponseEntity<?> createHotel(@RequestBody Hotel hotel){
 		Hotel savedHotel;
 		try{
