@@ -960,3 +960,33 @@ java.lang.Error: Unresolved compilation problem:
 2024-09-13T23:36:49.401-05:00  INFO 32104 --- [reservite.api] [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-09-13T23:36:49.402-05:00  INFO 32104 --- [reservite.api] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
 2024-09-13T23:36:49.402-05:00  INFO 32104 --- [reservite.api] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2024-09-13T23:36:49.476-05:00  INFO 32104 --- [reservite.api] [restartedMain] com.enp.reservite.api.Application        : Starting Application using Java 18.0.2.1 with PID 32104 (C:\EliezerNavarro\Desarrollo\proyectos\reservite\reservite.api\target\classes started by enepe in C:\EliezerNavarro\Desarrollo\proyectos\reservite\reservite.api)
+2024-09-13T23:36:49.476-05:00  INFO 32104 --- [reservite.api] [restartedMain] com.enp.reservite.api.Application        : No active profile set, falling back to 1 default profile: "default"
+2024-09-13T23:36:49.656-05:00  INFO 32104 --- [reservite.api] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-13T23:36:49.673-05:00  INFO 32104 --- [reservite.api] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 4 JPA repository interfaces.
+2024-09-13T23:36:49.735-05:00  INFO 32104 --- [reservite.api] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-13T23:36:49.736-05:00  INFO 32104 --- [reservite.api] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-13T23:36:49.736-05:00  INFO 32104 --- [reservite.api] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-13T23:36:49.769-05:00  INFO 32104 --- [reservite.api] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-13T23:36:49.769-05:00  INFO 32104 --- [reservite.api] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 291 ms
+2024-09-13T23:36:49.790-05:00  INFO 32104 --- [reservite.api] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-13T23:36:49.794-05:00  INFO 32104 --- [reservite.api] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-13T23:36:49.801-05:00  INFO 32104 --- [reservite.api] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-13T23:36:49.807-05:00  INFO 32104 --- [reservite.api] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2024-09-13T23:36:49.809-05:00  INFO 32104 --- [reservite.api] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7dbf1b1e
+2024-09-13T23:36:49.809-05:00  INFO 32104 --- [reservite.api] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2024-09-13T23:36:49.810-05:00  WARN 32104 --- [reservite.api] [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-09-13T23:36:49.810-05:00  WARN 32104 --- [reservite.api] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-13T23:36:49.879-05:00  INFO 32104 --- [reservite.api] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-13T23:36:49.931-05:00  INFO 32104 --- [reservite.api] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-13T23:36:49.997-05:00  WARN 32104 --- [reservite.api] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-13T23:36:50.001-05:00  INFO 32104 --- [reservite.api] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-09-13T23:36:50.001-05:00  WARN 32104 --- [reservite.api] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-09-13T23:36:50.068-05:00  INFO 32104 --- [reservite.api] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-13T23:36:50.074-05:00  INFO 32104 --- [reservite.api] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-13T23:36:50.077-05:00  INFO 32104 --- [reservite.api] [restartedMain] com.enp.reservite.api.Application        : Started Application in 0.626 seconds (process running for 1414.024)
+2024-09-13T23:36:50.077-05:00  INFO 32104 --- [reservite.api] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-09-13T23:38:13.343-05:00  INFO 32104 --- [reservite.api] [RMI TCP Connection(29)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-09-13T23:38:13.380-05:00  INFO 32104 --- [reservite.api] [RMI TCP Connection(29)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-13T23:38:13.381-05:00  INFO 32104 --- [reservite.api] [RMI TCP Connection(29)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2024-09-13T23:38:13.381-05:00  INFO 32104 --- [reservite.api] [RMI TCP Connection(29)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
