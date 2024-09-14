@@ -1,5 +1,7 @@
 package com.enp.reservite.api.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,10 @@ public class BookingService {
 		System.out.println(sb.toString());
 		System.out.println(booking.toString());
 		return bookingRepository.save(booking);
+	}
+
+	public List<Booking> findAll() {
+		return bookingRepository.findAll();
 	}
 
 }

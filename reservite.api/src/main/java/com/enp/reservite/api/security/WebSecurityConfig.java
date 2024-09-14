@@ -73,7 +73,9 @@ public class WebSecurityConfig {
                     //ROOM
                     registry.requestMatchers(HttpMethod.POST, "/api/v1/reservite/room").hasRole("USER");
                     registry.requestMatchers(HttpMethod.GET,  "/api/v1/reservite/room/by-number/**").hasRole("USER");
-                    //TASKFOLLOWUP
+                    //BOOKING
+                    registry.requestMatchers(HttpMethod.POST, "/api/v1/reservite/booking").hasRole("USER");
+                    registry.requestMatchers(HttpMethod.GET , "/api/v1/reservite/booking").hasRole("USER");
                     /*
                     registry.requestMatchers(HttpMethod.GET,  "/api/v1/taskflow/task/followup/**").hasRole("USER");
                     registry.requestMatchers(HttpMethod.POST, "/api/v1/taskflow/task/followup").hasRole("USER");
