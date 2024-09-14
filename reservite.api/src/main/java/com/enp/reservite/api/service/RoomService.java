@@ -36,8 +36,13 @@ public class RoomService {
 	}
 
 	public List<Room> findRoomByRoomNumber(String roomnumber) {
+		if(roomnumber.length() == 3) {
+			roomnumber += "0" + roomnumber;
+		}
+		Long floor  = Long.parseLong(roomnumber.substring(0,1));
+		Long number = Long.parseLong(roomnumber.substring(2,3));
 		//IMPLEMENTAR CONFIGURACION DE PISO Y NUMERO DE HABITACION PARA CONSULTA. ENVIAR DATOS AL REPOSITORY
-		return roomRepository.findRoomByRoomNumber(1l,1l);
+		return roomRepository.findRoomByRoomNumber(floor,number);
 	}
 
 }
