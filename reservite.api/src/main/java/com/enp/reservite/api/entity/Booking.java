@@ -66,17 +66,20 @@ public class Booking {
 	private Date dateCheckOut;
 	
 	@Column(name="status")
-	private Long status;
+	private Long status; //2-PROCESADA | 1-ACTIVA | 0-EXPIRADA
 	
 	@Column(name="qrcode", length = 100)
 	private String qrcode;
+	
+	@Column(name="mailsent")
+	private Long mailsent; //1-SI | 0-NO
 	
 	public Booking() {
 		
 	}
 
 	public Booking(Room room, Client client, Date dateCheckIn, Date dateExpire, Date dateCheckOut, Long status,
-			String qrcode) {
+			String qrcode, Long mailsent) {
 		super();
 		this.room = room;
 		this.client = client;
@@ -85,6 +88,7 @@ public class Booking {
 		this.dateCheckOut = dateCheckOut;
 		this.status = status;
 		this.qrcode = qrcode;
+		this.mailsent = mailsent;
 	}
 
 	public Integer getId() {
@@ -151,11 +155,19 @@ public class Booking {
 		this.qrcode = qrcode;
 	}
 
+	public Long getMailsent() {
+		return mailsent;
+	}
+
+	public void setMailsent(Long mailsent) {
+		this.mailsent = mailsent;
+	}
+
 	@Override
 	public String toString() {
 		return "Booking [id=" + id + ", room=" + room + ", client=" + client + ", dateCheckIn=" + dateCheckIn
 				+ ", dateExpire=" + dateExpire + ", dateCheckOut=" + dateCheckOut + ", status=" + status + ", qrcode="
-				+ qrcode + "]";
+				+ qrcode + ", mailsent=" + mailsent + "]";
 	}
 
 }
