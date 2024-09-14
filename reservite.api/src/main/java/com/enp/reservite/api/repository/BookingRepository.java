@@ -1,5 +1,9 @@
 package com.enp.reservite.api.repository;
 
-public interface BookingRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.enp.reservite.api.entity.Booking;
+
+public interface BookingRepository extends JpaRepository<Booking,Long> {
 
 }
