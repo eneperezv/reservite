@@ -19,12 +19,11 @@ public class BookingService {
 
 	public Booking save(Booking booking) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(func.completaStringCeros(Integer.toString(booking.getId()),"3"))
-			.append(func.completaStringCeros(booking.getRoom().getRoomnumber(),"5"))
-			.append(func.completaStringCeros(Long.toString(booking.getClient().getId()),"3"));
+		sb.append(System.currentTimeMillis())
+		  .append(func.completaStringCeros(booking.getRoom().getRoomnumber(),"5"))
+		  .append(func.completaStringCeros(Long.toString(booking.getClient().getId()),"5"));
 		booking.setQrcode(func.retornaMD5(sb.toString()));
-		System.out.println(sb.toString());
-		System.out.println(booking.toString());
+
 		return bookingRepository.save(booking);
 	}
 
