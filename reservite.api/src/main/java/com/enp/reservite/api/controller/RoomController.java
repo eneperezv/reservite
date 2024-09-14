@@ -48,15 +48,17 @@ public class RoomController {
 	
 	@PostMapping("/room")
 	public ResponseEntity<?> createUsuario(@RequestBody Room room){
-		String floor = "";
-		String number = "";
-		if(room.getRoomnumber() == null) {
-			floor  = Long.toString(room.getFloor());
-			number = Long.toString(room.getNumber());
-			if(number.length() == 1) {
-				number = "0" + number;
-			}
-			room.setRoomnumber(floor + number);
+		if (room.getRoomnumber() == null) {
+		    StringBuilder roomNumberBuilder = new StringBuilder();
+		    roomNumberBuilder.append(room.getFloor());
+		    
+		    String number = Long.toString(room.getNumber());
+		    if(number.length() == 1){
+		        roomNumberBuilder.append("0");
+		    }
+		    roomNumberBuilder.append(number);
+		    
+		    room.setRoomnumber(roomNumberBuilder.toString());
 		}
 		Room savedRoom;
 		try{

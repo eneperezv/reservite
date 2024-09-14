@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2024 a las 05:23:04
+-- Tiempo de generación: 14-09-2024 a las 06:35:40
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -26,6 +26,21 @@ USE `reservite`;
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `dbo_booking`
+--
+
+CREATE TABLE `dbo_booking` (
+  `id_booking` int(11) NOT NULL,
+  `date_checkin` datetime(6) DEFAULT NULL,
+  `date_checkout` datetime(6) DEFAULT NULL,
+  `status` bigint(20) DEFAULT NULL,
+  `id_client` bigint(20) NOT NULL,
+  `id_room` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `dbo_client`
 --
 
@@ -43,7 +58,9 @@ CREATE TABLE `dbo_client` (
 
 INSERT INTO `dbo_client` (`id_client`, `address`, `email`, `name`, `phone`) VALUES
 (1, 'Calle 152', 'nela@hotmail.com', 'Daniela Sanchez', '5556969'),
-(2, 'Calle 236', 'nela123@gmail.com', 'Daniela Rodriguez', '4525555');
+(2, 'Calle 236', 'nela123@gmail.com', 'Daniela Rodriguez', '4525555'),
+(3, 'Calle 30', 'jose@hotmail.com', 'Jose Perez', '8744444'),
+(4, 'Calle 89', 'anto@hotmail.com', 'Antonio Rodriguez', '3254414');
 
 -- --------------------------------------------------------
 
@@ -59,6 +76,14 @@ CREATE TABLE `dbo_hotel` (
   `phone` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `dbo_hotel`
+--
+
+INSERT INTO `dbo_hotel` (`id_hotel`, `address`, `email`, `name`, `phone`) VALUES
+(1, 'Calle 121', 'hilton@gmail.com', 'Hilton', '5225522'),
+(2, 'Calle 212', 'marriot@gmail.com', 'Marriot', '2552255');
+
 -- --------------------------------------------------------
 
 --
@@ -71,8 +96,29 @@ CREATE TABLE `dbo_room` (
   `description` varchar(1500) DEFAULT NULL,
   `floor` bigint(20) DEFAULT NULL,
   `number` bigint(20) DEFAULT NULL,
-  `hotel` bigint(20) NOT NULL
+  `status` bigint(20) DEFAULT NULL,
+  `id_hotel` bigint(20) NOT NULL,
+  `roomnumber` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `dbo_room`
+--
+
+INSERT INTO `dbo_room` (`id_room`, `capacity`, `description`, `floor`, `number`, `status`, `id_hotel`, `roomnumber`) VALUES
+(1, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 1, 1, 1, '101'),
+(2, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 2, 1, 1, '102'),
+(3, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 3, 1, 1, '103'),
+(4, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 4, 1, 1, '104'),
+(5, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 5, 1, 1, '105'),
+(6, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 1, 1, 1, '201'),
+(7, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 2, 1, 1, '202'),
+(8, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 3, 1, 1, '203'),
+(9, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 4, 1, 1, '204'),
+(10, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 5, 1, 1, '205'),
+(11, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 3, 1, 1, 1, '301'),
+(12, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 3, 2, 1, 1, '302'),
+(13, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 3, 3, 1, 1, '303');
 
 -- --------------------------------------------------------
 
@@ -102,6 +148,14 @@ INSERT INTO `dbo_users` (`id_user`, `name`, `password`, `role`, `username`) VALU
 --
 
 --
+-- Indices de la tabla `dbo_booking`
+--
+ALTER TABLE `dbo_booking`
+  ADD PRIMARY KEY (`id_booking`),
+  ADD KEY `FKfpvj0had17ksg3xmoreco6dl2` (`id_client`),
+  ADD KEY `FK9o02f8r2qj5y7wrd7nvsk9a38` (`id_room`);
+
+--
 -- Indices de la tabla `dbo_client`
 --
 ALTER TABLE `dbo_client`
@@ -118,7 +172,7 @@ ALTER TABLE `dbo_hotel`
 --
 ALTER TABLE `dbo_room`
   ADD PRIMARY KEY (`id_room`),
-  ADD KEY `FKb14ruf7kfmuhtgn60e2362x9a` (`hotel`);
+  ADD KEY `FKtbp2f0ws1ue7c7j6amp7jjklp` (`id_hotel`);
 
 --
 -- Indices de la tabla `dbo_users`
@@ -131,22 +185,28 @@ ALTER TABLE `dbo_users`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `dbo_booking`
+--
+ALTER TABLE `dbo_booking`
+  MODIFY `id_booking` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `dbo_client`
 --
 ALTER TABLE `dbo_client`
-  MODIFY `id_client` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_client` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `dbo_hotel`
 --
 ALTER TABLE `dbo_hotel`
-  MODIFY `id_hotel` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_hotel` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `dbo_room`
 --
 ALTER TABLE `dbo_room`
-  MODIFY `id_room` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_room` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `dbo_users`
@@ -159,10 +219,17 @@ ALTER TABLE `dbo_users`
 --
 
 --
+-- Filtros para la tabla `dbo_booking`
+--
+ALTER TABLE `dbo_booking`
+  ADD CONSTRAINT `FK9o02f8r2qj5y7wrd7nvsk9a38` FOREIGN KEY (`id_room`) REFERENCES `dbo_room` (`id_room`),
+  ADD CONSTRAINT `FKfpvj0had17ksg3xmoreco6dl2` FOREIGN KEY (`id_client`) REFERENCES `dbo_client` (`id_client`);
+
+--
 -- Filtros para la tabla `dbo_room`
 --
 ALTER TABLE `dbo_room`
-  ADD CONSTRAINT `FKb14ruf7kfmuhtgn60e2362x9a` FOREIGN KEY (`hotel`) REFERENCES `dbo_hotel` (`id_hotel`);
+  ADD CONSTRAINT `FKtbp2f0ws1ue7c7j6amp7jjklp` FOREIGN KEY (`id_hotel`) REFERENCES `dbo_hotel` (`id_hotel`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
