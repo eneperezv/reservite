@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-09-2024 a las 01:18:06
+-- Tiempo de generación: 14-09-2024 a las 06:35:40
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -33,20 +33,10 @@ CREATE TABLE `dbo_booking` (
   `id_booking` int(11) NOT NULL,
   `date_checkin` datetime(6) DEFAULT NULL,
   `date_checkout` datetime(6) DEFAULT NULL,
-  `date_expire` datetime(6) DEFAULT NULL,
-  `qrcode` varchar(100) DEFAULT NULL,
   `status` bigint(20) DEFAULT NULL,
   `id_client` bigint(20) NOT NULL,
-  `id_room` bigint(20) NOT NULL,
-  `mailsent` bigint(20) DEFAULT NULL
+  `id_room` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `dbo_booking`
---
-
-INSERT INTO `dbo_booking` (`id_booking`, `date_checkin`, `date_checkout`, `date_expire`, `qrcode`, `status`, `id_client`, `id_room`, `mailsent`) VALUES
-(1, '2024-09-21 10:00:00.000000', '2024-09-22 07:00:00.000000', '2024-09-21 15:00:00.000000', '5111cc7ef3bd2911e712f4202c0cd080', 1, 5, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -70,8 +60,7 @@ INSERT INTO `dbo_client` (`id_client`, `address`, `email`, `name`, `phone`) VALU
 (1, 'Calle 152', 'nela@hotmail.com', 'Daniela Sanchez', '5556969'),
 (2, 'Calle 236', 'nela123@gmail.com', 'Daniela Rodriguez', '4525555'),
 (3, 'Calle 30', 'jose@hotmail.com', 'Jose Perez', '8744444'),
-(4, 'Calle 89', 'anto@hotmail.com', 'Antonio Rodriguez', '3254414'),
-(5, 'Calle 50', 'npeliezere@gmail.com', 'Eliezer Navarro Pérez', '5524545');
+(4, 'Calle 89', 'anto@hotmail.com', 'Antonio Rodriguez', '3254414');
 
 -- --------------------------------------------------------
 
@@ -117,7 +106,7 @@ CREATE TABLE `dbo_room` (
 --
 
 INSERT INTO `dbo_room` (`id_room`, `capacity`, `description`, `floor`, `number`, `status`, `id_hotel`, `roomnumber`) VALUES
-(1, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 1, 0, 1, '101'),
+(1, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 1, 1, 1, '101'),
 (2, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 2, 1, 1, '102'),
 (3, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 3, 1, 1, '103'),
 (4, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 4, 1, 1, '104'),
@@ -199,13 +188,13 @@ ALTER TABLE `dbo_users`
 -- AUTO_INCREMENT de la tabla `dbo_booking`
 --
 ALTER TABLE `dbo_booking`
-  MODIFY `id_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_booking` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `dbo_client`
 --
 ALTER TABLE `dbo_client`
-  MODIFY `id_client` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_client` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `dbo_hotel`
