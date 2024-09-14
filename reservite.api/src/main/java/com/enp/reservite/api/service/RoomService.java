@@ -35,13 +35,15 @@ public class RoomService {
 		return roomRepository.save(room);
 	}
 
-	public List<Room> findRoomByRoomNumber(String roomnumber) {
+	public Room findRoomByRoomNumber(String roomnumber) {
+		/*
 		if(roomnumber.length() == 3) {
 			roomnumber += "0" + roomnumber;
 		}
 		Long floor  = Long.parseLong(roomnumber.substring(0,1));
 		Long number = Long.parseLong(roomnumber.substring(2,3));
-		return roomRepository.findRoomByRoomNumber(floor,number);
+		*/
+		return roomRepository.findRoomByRoomNumber(roomnumber);
 	}
 
 }

@@ -48,6 +48,16 @@ public class RoomController {
 	
 	@PostMapping("/room")
 	public ResponseEntity<?> createUsuario(@RequestBody Room room){
+		String floor = "";
+		String number = "";
+		if(room.getRoomnumber() == null) {
+			floor  = Long.toString(room.getFloor());
+			number = Long.toString(room.getNumber());
+			if(number.length() == 1) {
+				number = "0" + number;
+			}
+			room.setRoomnumber(floor + number);
+		}
 		Room savedRoom;
 		try{
 			savedRoom = roomService.save(room);
@@ -64,17 +74,17 @@ public class RoomController {
 	
 	@GetMapping("/room/by-number/{roomnumber}")
 	public ResponseEntity<?> findRoomByRoomNumber(@PathVariable("roomnumber") String roomnumber){
-		List<Room> lista = new ArrayList<Room>();
+		Room room = new Room();
 		try{
-			roomService.findRoomByRoomNumber(roomnumber).forEach(lista::add);
-			if(lista.isEmpty()) {
+			room = roomService.findRoomByRoomNumber(roomnumber);
+			if(room == null) {
 				ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.OK.toString(),"NO CONTENT");
-				return new ResponseEntity<>(err,HttpStatus.OK);
+				return new ResponseEntity<ErrorDetails>(err,HttpStatus.OK);
 			}
-			return new ResponseEntity<>(lista, HttpStatus.OK);
+			return new ResponseEntity<Room>(room, HttpStatus.OK);
 		}catch(Exception e){
 			ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.INTERNAL_SERVER_ERROR.toString(),"INTERNAL SERVER ERROR");
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<ErrorDetails>(err, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
