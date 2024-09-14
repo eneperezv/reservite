@@ -57,6 +57,10 @@ public class Booking {
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date dateCheckIn;
 	
+	@Column(name="date_expire")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date dateExpire;
+	
 	@Column(name="date_checkout")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date dateCheckOut;
@@ -64,17 +68,23 @@ public class Booking {
 	@Column(name="status")
 	private Long status;
 	
+	@Column(name="qrcode", length = 100)
+	private String qrcode;
+	
 	public Booking() {
 		
 	}
 
-	public Booking(Room room, Client client, Date dateCheckIn, Date dateCheckOut, Long status) {
+	public Booking(Room room, Client client, Date dateCheckIn, Date dateExpire, Date dateCheckOut, Long status,
+			String qrcode) {
 		super();
 		this.room = room;
 		this.client = client;
 		this.dateCheckIn = dateCheckIn;
+		this.dateExpire = dateExpire;
 		this.dateCheckOut = dateCheckOut;
 		this.status = status;
+		this.qrcode = qrcode;
 	}
 
 	public Integer getId() {
@@ -109,6 +119,14 @@ public class Booking {
 		this.dateCheckIn = dateCheckIn;
 	}
 
+	public Date getDateExpire() {
+		return dateExpire;
+	}
+
+	public void setDateExpire(Date dateExpire) {
+		this.dateExpire = dateExpire;
+	}
+
 	public Date getDateCheckOut() {
 		return dateCheckOut;
 	}
@@ -125,10 +143,19 @@ public class Booking {
 		this.status = status;
 	}
 
+	public String getQrcode() {
+		return qrcode;
+	}
+
+	public void setQrcode(String qrcode) {
+		this.qrcode = qrcode;
+	}
+
 	@Override
 	public String toString() {
 		return "Booking [id=" + id + ", room=" + room + ", client=" + client + ", dateCheckIn=" + dateCheckIn
-				+ ", dateCheckOut=" + dateCheckOut + ", status=" + status + "]";
+				+ ", dateExpire=" + dateExpire + ", dateCheckOut=" + dateCheckOut + ", status=" + status + ", qrcode="
+				+ qrcode + "]";
 	}
 
 }
