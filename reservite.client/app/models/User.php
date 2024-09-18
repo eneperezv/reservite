@@ -1,6 +1,6 @@
 <?php
 
-/*
+/* PENDIENTE DE PRUEBAS
  * @(#)User.php 1.0 15/09/2024
  * 
  * El código implementado en este formulario esta protegido
