@@ -19,13 +19,19 @@ class AuthController
 
     public function authenticate($username, $password)
     {
+        // Llamamos al modelo Auth para obtener las credenciales
         $auth = new Auth($username, $password);
 
-        // Usamos el método getAuthEndpoint() para obtener la URL desde la configuración
-        $token = $this->apiService->post($this->apiService->getAuthEndpoint(), $auth->getCredentials());
+        if ($auth->isValid()) {
+            $token = $this->apiService->post($this->apiService->getAuthEndpoint(), $auth->getCredentials());
 
-        $this->tokenService->saveToken($token['token']);
+            // Guardamos el token en el TokenService
+            $this->tokenService->saveToken($token['token']);
+        } else {
+            throw new \Exception("Credenciales no válidas");
+        }
     }
+
 }
 
 ?>
