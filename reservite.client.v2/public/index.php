@@ -2,9 +2,9 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use App\Controllers\AuthController;
-use App\Controllers\ClientController;
-use App\Controllers\ReservationController;
+use Enp\ReserviteClientV2\Controllers\AuthController;
+use Enp\ReserviteClientV2\Controllers\ClientController;
+use Enp\ReserviteClientV2\Controllers\ReservationController;
 
 $action = $_GET['action'] ?? null;
 

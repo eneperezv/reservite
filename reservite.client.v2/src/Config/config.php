@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Config;
+namespace Enp\ReserviteClientV2\Config;
 
 class Config
 {
@@ -8,7 +8,11 @@ class Config
 
     public function __construct()
     {
-        $this->settings = parse_ini_file(__DIR__ . '/../../config/config.ini', true);
+        echo 'holaaaaaaa<br>';
+        echo file_get_contents(__DIR__ . '\config.ini');
+        //var_dump(__DIR__ . '\config.ini');
+
+        $this->settings = parse_ini_file(__DIR__ . '/../../src/Config/config.ini', true);
     }
 
     public function get($section, $key)

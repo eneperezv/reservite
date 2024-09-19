@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace Enp\ReserviteClientV2\Services;
 
 class TokenService
 {

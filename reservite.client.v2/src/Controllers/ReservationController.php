@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace Enp\ReserviteClientV2\Controllers;
 
-use App\Models\Reservation;
-use App\Services\ApiService;
-use App\Services\TokenService;
+use Enp\ReserviteClientV2\Models\Reservation;
+use Enp\ReserviteClientV2\Services\ApiService;
+use Enp\ReserviteClientV2\Services\TokenService;
 
 class ReservationController
 {

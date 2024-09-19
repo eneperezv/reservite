@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Enp\ReserviteClientV2\Models;
 
 class Client
 {

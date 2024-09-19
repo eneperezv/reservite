@@ -1,0 +1,15 @@
+{
+    "name": "enp/reservite.client.v2",
+    "description": "Cliente para reserva de habitaciones",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^7.9"
+    },
+    "license": "GNU/GPLv3",
+    "autoload": {
+        "psr-4": {
+            "Enp\\ReserviteClientV2\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

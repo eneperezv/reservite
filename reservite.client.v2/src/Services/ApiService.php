@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services;
+namespace Enp\ReserviteClientV2\Services;
 
 use GuzzleHttp\Client;
-use App\Config\Config;
+use Enp\ReserviteClientV2\Config\Config;
 
 class ApiService
 {

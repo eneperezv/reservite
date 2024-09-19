@@ -54,6 +54,7 @@ public class AuthController {
 	
 	@PostMapping("/auth")
 	public String authenticateAndGetToken(@RequestBody LoginForm loginForm) {
+		System.out.println("HOLAAAAAAAA--->"+loginForm.toString()+"<---");
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 loginForm.username(), loginForm.password()
         ));
