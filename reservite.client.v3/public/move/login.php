@@ -11,8 +11,18 @@ session_start();
 // Cargar configuración
 $config = require __DIR__ . '/../../src/Config/config.php';
 
+// Establecer la zona horaria desde la configuración
+date_default_timezone_set($config['timezone']);
+
 // Instanciar el logger
 $logger = new Logger();
+
+// Acceder a la URL base y al endpoint de autenticación
+$apiBaseUrl = $config['api_url'];
+$authEndpoint = $config['endpoints']['auth'];
+
+// Crear la URL completa para el login
+$authUrl = $apiBaseUrl . $authEndpoint;
 
 // Obtener credenciales del formulario
 $username = $_POST['txtUsername'] ?? null;
@@ -25,7 +35,7 @@ if (!$username || !$password) {
 }
 
 // Crear instancia del servicio de autenticación
-$authService = new App\Services\AuthService($config['api_url']);
+$authService = new App\Services\AuthService($authUrl);
 
 // Intentar autenticar al usuario
 $response = $authService->login($username, $password);
