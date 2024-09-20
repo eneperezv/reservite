@@ -1,12 +1,18 @@
 <?php
 
 require_once __DIR__ . '/../../src/Services/AuthService.php';
+require_once __DIR__ . '/../../src/Services/Logger.php';
+
+use App\Services\Logger;
 
 // Iniciar sesión
 session_start();
 
 // Cargar configuración
 $config = require __DIR__ . '/../../src/Config/config.php';
+
+// Instanciar el logger
+$logger = new Logger();
 
 // Obtener credenciales del formulario
 $username = $_POST['txtUsername'] ?? null;
@@ -33,6 +39,7 @@ if ($response && isset($response['token'])) {
     exit;
 } else {
     // Autenticación fallida, redirigimos con un mensaje de error
+    $logger->error("Error de autenticación para el usuario {$username}.");
     header('Location: ../index.php?error=Credenciales incorrectas');
     exit;
 }
