@@ -10,6 +10,7 @@ if (!$token) {
     die('Error: No autenticado.');
 }
 $dat = false;
+$book = false;
 $rooms;
 if(isset($_GET['hotel'])){
     $url_request = $config['endpoints']['get_rooms_by_hotel'].$_GET['hotel'];
@@ -32,6 +33,9 @@ if(isset($_POST['btnBuscar'])){
     }
     $rooms = $response;
     $dat = true;
+}
+if(isset($_GET['booking'])){
+    $book = true;
 }
 ?>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -82,7 +86,7 @@ if(isset($_POST['btnBuscar'])){
                                         #
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Book this room</a></li>
+                                        <li><a class="dropdown-item" href="dash.php?page=rooms&booking=<?php echo htmlspecialchars($room['roomnumber']); ?>">Book this room</a></li>
                                     </ul>
                                 </div>
                                 </td>
@@ -95,6 +99,33 @@ if(isset($_POST['btnBuscar'])){
                     <?php endif; ?>
                 </tbody>
             </table>
+        </div>
+        <?php
+    }
+    if($book){
+        ?>
+        <div class="bd-example-snippet bd-code-snippet">
+            <div class="bd-example m-0 border-0">
+                <nav>
+                    <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+                        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <p><?php print 'Roomnumber: '.$_GET['booking']; ?></p>
+                        <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <p>This is some placeholder content the <strong>Contact tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <?php
     }
