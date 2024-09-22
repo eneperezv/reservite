@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-09-2024 a las 22:24:59
+-- Tiempo de generación: 22-09-2024 a las 06:42:13
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -129,8 +129,7 @@ INSERT INTO `dbo_room` (`id_room`, `capacity`, `description`, `floor`, `number`,
 (10, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 5, 1, 1, '205'),
 (11, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 3, 1, 1, 1, '301'),
 (12, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 3, 2, 1, 1, '302'),
-(13, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 3, 3, 1, 1, '303'),
-(14, 2, 'Super habitacion con todo', 1, 1, 1, 2, '101');
+(13, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 3, 3, 1, 1, '303');
 
 -- --------------------------------------------------------
 
@@ -218,7 +217,7 @@ ALTER TABLE `dbo_hotel`
 -- AUTO_INCREMENT de la tabla `dbo_room`
 --
 ALTER TABLE `dbo_room`
-  MODIFY `id_room` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_room` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `dbo_users`
