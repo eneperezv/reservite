@@ -36,28 +36,28 @@ class Logger
     }
 
     // Método para registrar información en el log
-    public function info($message)
+    public function info($message,$username)
     {
-        $this->log('INFO', $message);
+        $this->log('INFO', $message,$username);
     }
 
     // Método para registrar advertencias
-    public function warning($message)
+    public function warning($message,$username)
     {
-        $this->log('WARNING', $message);
+        $this->log('WARNING', $message,$username);
     }
 
     // Método para registrar errores
-    public function error($message)
+    public function error($message,$username)
     {
-        $this->log('ERROR', $message);
+        $this->log('ERROR', $message,$username);
     }
 
     // Método general para escribir en el log
-    private function log($level, $message)
+    private function log($level, $message,$username)
     {
         $date = date('Y-m-d H:i:s');
-        $logMessage = "[{$date}] [{$level}] - {$message}\n";
+        $logMessage = "[{$date}] [{$level}] [{$username}] - {$message}\n";
         file_put_contents($this->logFile, $logMessage, FILE_APPEND);
     }
 
