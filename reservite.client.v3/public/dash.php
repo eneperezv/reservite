@@ -237,6 +237,8 @@ if (!isset($_SESSION['auth_token'])) {
                 include '../src/Pages/clients.php';
             }elseif($_GET['page']=='hotels'){
                 include '../src/Pages/hotels.php';
+            }elseif($_GET['page']=='rooms'){
+                include '../src/Pages/rooms.php';
             }
             ?>
         </div>

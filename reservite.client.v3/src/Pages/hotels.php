@@ -51,7 +51,7 @@ $hotels = $response;
                                     #
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Available rooms</a></li>
+                                    <li><a class="dropdown-item" href="dash.php?page=rooms&hotel=<?php echo htmlspecialchars($hotel['id']); ?>">Available rooms</a></li>
                                 </ul>
                             </div>
                             </td>
@@ -65,4 +65,5 @@ $hotels = $response;
             </tbody>
         </table>
     </div>
+    <br><br><br><br>
 </main>

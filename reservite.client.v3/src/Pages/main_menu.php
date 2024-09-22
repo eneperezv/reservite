@@ -26,7 +26,7 @@ if($_GET['page']=='main'){
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2 <?php print $aMain; ?>" aria-current="page" href="dash.php?page=main">
-                                    <svg class="bi"><use xlink:href="#house-fill"/></svg>
+                                    <i class="bi bi-speedometer"></i>
                                     Dashboard
                                 </a>
                             </li>
@@ -35,19 +35,19 @@ if($_GET['page']=='main'){
                         <ul class="nav flex-column mb-auto">
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2 <?php print $aClient; ?>" href="dash.php?page=clients">
-                                    <svg class="bi"><use xlink:href="#gear-wide-connected"/></svg>
+                                    <i class="bi bi-people-fill"></i>
                                     Clients
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2 <?php print $aHotel; ?>" href="dash.php?page=hotels">
-                                    <svg class="bi"><use xlink:href="#door-closed"/></svg>
+                                    <i class="bi bi-houses"></i>
                                     Hotels
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 <?php print $aRoom; ?>" href="#">
-                                    <svg class="bi"><use xlink:href="#file-earmark"/></svg>
+                                <a class="nav-link d-flex align-items-center gap-2 <?php print $aRoom; ?>" href="dash.php?page=rooms">
+                                    <i class="bi bi-door-closed-fill"></i>
                                     Rooms
                                 </a>
                             </li>
@@ -56,7 +56,7 @@ if($_GET['page']=='main'){
                         <ul class="nav flex-column mb-auto">
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2 <?php print $aBooking; ?>" href="#">
-                                    <svg class="bi"><use xlink:href="#gear-wide-connected"/></svg>
+                                    <i class="bi bi-journal-bookmark-fill"></i>
                                     Booking
                                 </a>
                             </li>
@@ -131,7 +131,7 @@ if($_GET['page']=='main'){
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2" href="logout.php">
-                                    <svg class="bi"><use xlink:href="#door-closed"/></svg>
+                                    <i class="bi bi-x-circle-fill"></i>
                                     Sign out
                                 </a>
                             </li>

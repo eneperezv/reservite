@@ -14,12 +14,12 @@
  * @since 1.0
  */ 
 
-// Iniciar sesión
 session_start();
 
-// Limpiar el token de la sesión
 unset($_SESSION['auth_token']);
+unset($_SESSION['username']);
 
-// Redirigir al index
+session_destroy();
+
 header('Location: index.php');
 exit;

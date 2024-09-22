@@ -73,4 +73,5 @@ if(isset($_POST['btnBuscar'])){
             </tbody>
         </table>
     </div>
+    <br><br><br><br>
 </main>
