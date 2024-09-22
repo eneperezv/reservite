@@ -1,5 +1,7 @@
 package com.enp.reservite.api.service;
 
+import java.util.List;
+
 /*
  * @(#)HotelService.java 1.0 12/09/2024
  * 
@@ -31,6 +33,10 @@ public class HotelService {
 
 	public Hotel save(Hotel hotel) {
 		return hotelRepository.save(hotel);
+	}
+
+	public List<Hotel> findAll() {
+		return hotelRepository.findAll();
 	}
 
 }

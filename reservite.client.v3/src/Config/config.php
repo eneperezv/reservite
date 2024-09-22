@@ -20,6 +20,8 @@ return [
         'auth' => '/auth',
         'get_user' => '/user',
         'get_clients' => '/client/by-nombre/',
+        'get_hotels' => '/hotel',
+        'get_rooms_by_hotel' => '/room/by-hotel/',
         'create_reservation' => '/reservations',
     ],
     'timezone' => 'America/Bogota',  // Configuración del timezone

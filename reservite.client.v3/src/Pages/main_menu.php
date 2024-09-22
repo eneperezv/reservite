@@ -40,7 +40,7 @@ if($_GET['page']=='main'){
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 <?php print $aHotel; ?>" href="logout.php">
+                                <a class="nav-link d-flex align-items-center gap-2 <?php print $aHotel; ?>" href="dash.php?page=hotels">
                                     <svg class="bi"><use xlink:href="#door-closed"/></svg>
                                     Hotels
                                 </a>

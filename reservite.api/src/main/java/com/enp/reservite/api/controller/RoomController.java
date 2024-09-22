@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.enp.reservite.api.entity.Client;
 import com.enp.reservite.api.entity.ErrorDetails;
 import com.enp.reservite.api.entity.Room;
 import com.enp.reservite.api.service.RoomService;
@@ -87,6 +88,22 @@ public class RoomController {
 		}catch(Exception e){
 			ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.INTERNAL_SERVER_ERROR.toString(),"INTERNAL SERVER ERROR");
 			return new ResponseEntity<ErrorDetails>(err, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping("/room/by-hotel/{hotel}")
+	public ResponseEntity<?> findRoomByHotel(@PathVariable("hotel") Long hotel){
+		List<Room> lista = new ArrayList<Room>();
+		try{
+			roomService.findByHotel(hotel).forEach(lista::add);
+			if(lista.isEmpty()) {
+				ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.OK.toString(),"NO CONTENT");
+				return new ResponseEntity<>(err,HttpStatus.OK);
+			}
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+		}catch(Exception e){
+			ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.INTERNAL_SERVER_ERROR.toString(),"INTERNAL SERVER ERROR");
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
