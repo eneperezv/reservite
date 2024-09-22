@@ -64,6 +64,6 @@ if ($response && isset($response['token'])) {
 } else {
     // Autenticación fallida, redirigimos con un mensaje de error
     $logger->error("Error de autenticación.",$username);
-    header('Location: ../index.php?error=Credenciales incorrectas');
+    header('Location: ../index.php?error=CredencialesIncorrectas');
     exit;
 }
