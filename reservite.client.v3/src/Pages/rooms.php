@@ -9,7 +9,8 @@ $token = $_SESSION['auth_token'] ?? null;
 if (!$token) {
     die('Error: No autenticado.');
 }
-
+$dat = false;
+$rooms;
 if(isset($_GET['hotel'])){
     $url_request = $config['endpoints']['get_rooms_by_hotel'].$_GET['hotel'];
     $apiService = new App\Services\ApiService($config['api_url'], $token, $logger);
@@ -19,6 +20,7 @@ if(isset($_GET['hotel'])){
         die('Error al obtener los rooms.');
     }
     $rooms = $response;
+    $dat = true;
 }
 if(isset($_POST['btnBuscar'])){
     $url_request = $config['endpoints']['get_rooms_by_number'].$_POST['txtRoomNumber'];
@@ -29,6 +31,7 @@ if(isset($_POST['btnBuscar'])){
         die('Error al obtener los rooms.');
     }
     $rooms = $response;
+    $dat = true;
 }
 ?>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -44,53 +47,57 @@ if(isset($_POST['btnBuscar'])){
         <br>
         <?php
     } 
-    ?>
-    <br>
-    <h2>Available rooms</h2>
-    <div class="table-responsive">
-        <table class="table table-striped table-sm">
-            <thead>
-                <tr>
-                    <th>Hotel</th>
-                    <th>Room Number</th>
-                    <th>Floor</th>
-                    <th>Capacity</th>
-                    <th>Description</th>
-                    <th>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"/>
-                        </svg>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (!empty($rooms)): ?>
-                    <?php foreach ($rooms as $room): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($room['hotel']['name']); ?></td>
-                            <td><?php echo htmlspecialchars($room['roomnumber']); ?></td>
-                            <td><?php echo htmlspecialchars($room['floor']); ?></td>
-                            <td><?php echo htmlspecialchars($room['capacity']); ?></td>
-                            <td><?php echo htmlspecialchars($room['description']); ?></td>
-                            <td>
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    #
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Book this room</a></li>
-                                </ul>
-                            </div>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
+    if($dat){
+        ?>
+        <br>
+        <h2>Available rooms</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
                     <tr>
-                        <td colspan="5">No se encontraron habitaciones.</td>
+                        <th>Hotel</th>
+                        <th>Room Number</th>
+                        <th>Floor</th>
+                        <th>Capacity</th>
+                        <th>Description</th>
+                        <th>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"/>
+                            </svg>
+                        </th>
                     </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                    <?php if (!empty($rooms)): ?>
+                        <?php foreach ($rooms as $room): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($room['hotel']['name']); ?></td>
+                                <td><?php echo htmlspecialchars($room['roomnumber']); ?></td>
+                                <td><?php echo htmlspecialchars($room['floor']); ?></td>
+                                <td><?php echo htmlspecialchars($room['capacity']); ?></td>
+                                <td><?php echo htmlspecialchars($room['description']); ?></td>
+                                <td>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        #
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Book this room</a></li>
+                                    </ul>
+                                </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="5">No se encontraron habitaciones.</td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php
+    }
+    ?>
     <br><br><br><br>
 </main>
