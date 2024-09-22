@@ -59,7 +59,7 @@ if ($response && isset($response['token'])) {
     $_SESSION['auth_token'] = $response['token'];
 
     // Redirigimos al dashboard
-    header('Location: ../dash.php');
+    header('Location: ../dash.php?page=main');
     exit;
 } else {
     // Autenticación fallida, redirigimos con un mensaje de error
