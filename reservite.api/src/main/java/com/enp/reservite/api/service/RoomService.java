@@ -35,7 +35,7 @@ public class RoomService {
 		return roomRepository.save(room);
 	}
 
-	public Room findRoomByRoomNumber(String roomnumber) {
+	public List<Room> findRoomByRoomNumber(String roomnumber) {
 		/*
 		if(roomnumber.length() == 3) {
 			roomnumber += "0" + roomnumber;

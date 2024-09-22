@@ -27,7 +27,7 @@ import com.enp.reservite.api.entity.Room;
 public interface RoomRepository extends JpaRepository<Room,Long> {
 	
 	@Query(value = "SELECT r.* FROM dbo_room r WHERE r.roomnumber = :roomnumber", nativeQuery = true)
-	Room findRoomByRoomNumber(String roomnumber);
+	List<Room> findRoomByRoomNumber(String roomnumber);
 
 	@Query(value = "SELECT r.* FROM dbo_room r WHERE r.id_hotel = :hotel AND r.status = 1", nativeQuery = true)
 	List<Room> findByHotel(Long hotel);

@@ -77,14 +77,23 @@ public class RoomController {
 	
 	@GetMapping("/room/by-number/{roomnumber}")
 	public ResponseEntity<?> findRoomByRoomNumber(@PathVariable("roomnumber") String roomnumber){
-		Room room = new Room();
+		List<Room> lista = new ArrayList<Room>();
+		//Room room = new Room();
 		try{
+			roomService.findRoomByRoomNumber(roomnumber).forEach(lista::add);
+			if(lista.isEmpty()) {
+				ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.OK.toString(),"NO CONTENT");
+				return new ResponseEntity<>(err,HttpStatus.OK);
+			}
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+			/*
 			room = roomService.findRoomByRoomNumber(roomnumber);
 			if(room == null) {
 				ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.OK.toString(),"NO CONTENT");
 				return new ResponseEntity<ErrorDetails>(err,HttpStatus.OK);
 			}
 			return new ResponseEntity<Room>(room, HttpStatus.OK);
+			*/
 		}catch(Exception e){
 			ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.INTERNAL_SERVER_ERROR.toString(),"INTERNAL SERVER ERROR");
 			return new ResponseEntity<ErrorDetails>(err, HttpStatus.INTERNAL_SERVER_ERROR);

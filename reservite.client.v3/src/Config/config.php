@@ -22,6 +22,7 @@ return [
         'get_clients' => '/client/by-nombre/',
         'get_hotels' => '/hotel',
         'get_rooms_by_hotel' => '/room/by-hotel/',
+        'get_rooms_by_number' => '/room/by-number/',
         'create_reservation' => '/reservations',
     ],
     'timezone' => 'America/Bogota',  // Configuración del timezone

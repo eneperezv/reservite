@@ -12,24 +12,39 @@ if (!$token) {
 
 if(isset($_GET['hotel'])){
     $url_request = $config['endpoints']['get_rooms_by_hotel'].$_GET['hotel'];
+    $apiService = new App\Services\ApiService($config['api_url'], $token, $logger);
+    $response = $apiService->get($url_request);
+    if (isset($response['error'])) {
+        $logger->error("Error al obtener rooms: " . json_encode($response),$_SESSION['username']);
+        die('Error al obtener los rooms.');
+    }
+    $rooms = $response;
 }
-$apiService = new App\Services\ApiService($config['api_url'], $token, $logger);
-$response = $apiService->get($url_request);
-if (isset($response['error'])) {
-    $logger->error("Error al obtener rooms: " . json_encode($response),$_SESSION['username']);
-    die('Error al obtener los rooms.');
+if(isset($_POST['btnBuscar'])){
+    $url_request = $config['endpoints']['get_rooms_by_number'].$_POST['txtRoomNumber'];
+    $apiService = new App\Services\ApiService($config['api_url'], $token, $logger);
+    $response = $apiService->get($url_request);
+    if (isset($response['error'])) {
+        $logger->error("Error al obtener rooms: " . json_encode($response),$_SESSION['username']);
+        die('Error al obtener los rooms.');
+    }
+    $rooms = $response;
 }
-$rooms = $response;
-//echo var_dump($rooms);
 ?>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <form action="" method="POST">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" id="txtRoomNumber" name="txtRoomNumber" placeholder="Buscar habitacion por número" aria-label="Buscar habitacion por número" aria-describedby="btnBuscar">
-            <button class="btn btn-outline-secondary" type="submit" id="btnBuscar" name="btnBuscar">Bucar</button>
-        </div>
-    </form>
-    <br>
+    <?php
+    if(!isset($_GET['hotel'])){
+        ?>
+        <form action="" method="POST">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="txtRoomNumber" name="txtRoomNumber" placeholder="Buscar habitacion por número" aria-label="Buscar habitacion por número" aria-describedby="btnBuscar">
+                <button class="btn btn-outline-secondary" type="submit" id="btnBuscar" name="btnBuscar">Bucar</button>
+            </div>
+        </form>
+        <br>
+        <?php
+    } 
+    ?>
     <br>
     <h2>Available rooms</h2>
     <div class="table-responsive">
