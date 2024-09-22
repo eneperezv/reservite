@@ -1,45 +1,34 @@
 <?php
-
 require_once __DIR__ . '/../../src/Services/ApiService.php';
 require_once __DIR__ . '/../../src/Services/Logger.php';
-
 use App\Services\Logger;
-
-// Iniciar sesión
-//session_start();
-
-// Cargar configuración
 $config = require __DIR__ . '/../../src/Config/config.php';
-
-// Crear instancia del logger
-$logger = new Logger();
-
-// Obtener el token de la sesión
-$token = $_SESSION['auth_token'] ?? null;
-
-if (!$token) {
-    die('Error: No autenticado.');
+if(isset($_POST['btnBuscar'])){
+    $logger = new Logger();
+    $token = $_SESSION['auth_token'] ?? null;
+    if (!$token) {
+        die('Error: No autenticado.');
+    }
+    $query = $_POST['txtCliente'];
+    $apiService = new App\Services\ApiService($config['api_url'], $token, $logger);
+    $response = $apiService->get($config['endpoints']['get_clients'].$query);
+    if (isset($response['error'])) {
+        $logger->error("Error al obtener los clientes: " . json_encode($response),$_SESSION['username']);
+        die('Error al obtener los datos de clientes.');
+    }
+    $clientes = $response;
 }
-
-// Crear instancia de ApiService
-$apiService = new App\Services\ApiService($config['api_url'], $token, $logger);
-
-// Realizar la solicitud GET al endpoint de clientes
-$response = $apiService->get($config['endpoints']['get_clients']);
-
-if (isset($response['error'])) {
-    // Si hay un error, mostrar un mensaje y registrar el error
-    $logger->error("Error al obtener los clientes: " . json_encode($response));
-    die('Error al obtener los datos de clientes.');
-}
-
-// Si la respuesta es exitosa, guardamos los clientes
-$clientes = $response;
-
 ?>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <form action="" method="POST">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="txtCliente" name="txtCliente" placeholder="Buscar cliente por nombre" aria-label="Buscar cliente por nombre" aria-describedby="btnBuscar">
+            <button class="btn btn-outline-secondary" type="submit" id="btnBuscar" name="btnBuscar">Bucar</button>
+        </div>
+    </form>
+    <br><br>
     <h2>Clients</h2>
-    <div class="table-responsive small">
+    <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
@@ -48,6 +37,11 @@ $clientes = $response;
                     <th>Email</th>
                     <th>Dirección</th>
                     <th>Teléfono</th>
+                    <th>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"/>
+                        </svg>
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -59,6 +53,16 @@ $clientes = $response;
                             <td><?php echo htmlspecialchars($cliente['email']); ?></td>
                             <td><?php echo htmlspecialchars($cliente['address']); ?></td>
                             <td><?php echo htmlspecialchars($cliente['phone']); ?></td>
+                            <td>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    #
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Book a room</a></li>
+                                </ul>
+                            </div>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>

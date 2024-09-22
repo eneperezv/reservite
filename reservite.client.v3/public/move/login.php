@@ -57,7 +57,7 @@ $response = $authService->login($username, $password);
 if ($response && isset($response['token'])) {
     // Autenticación exitosa, guardamos el token en la sesión
     $_SESSION['auth_token'] = $response['token'];
-
+    $_SESSION['username']   = $username;
     // Redirigimos al dashboard
     header('Location: ../dash.php?page=main');
     exit;

@@ -100,7 +100,7 @@
 </head>
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <main class="form-signin w-100 m-auto">
-    <form action="move/login.php" method="POST">
+        <form action="move/login.php" method="POST">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
             <div class="form-floating">
                 <input type="text" name="txtUsername" class="form-control" id="floatingInput" placeholder="Username" value="enp">
