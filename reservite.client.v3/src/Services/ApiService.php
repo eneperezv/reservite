@@ -31,7 +31,7 @@ class ApiService
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        $this->logger->info("GET request to {$url} - Response code: {$httpCode}");
+        $this->logger->info("GET request to {$url} - Response code: {$httpCode}","SYSTEM");
 
         return $this->handleResponse($response, $httpCode);
     }
@@ -60,7 +60,7 @@ class ApiService
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        $this->logger->info("{$method} request to {$url} - Response code: {$httpCode}");
+        $this->logger->info("{$method} request to {$url} - Response code: {$httpCode}","SYSTEM");
 
         return $this->handleResponse($response, $httpCode);
     }
@@ -82,7 +82,7 @@ class ApiService
         }
 
         // Registrar el error en el log
-        $this->logger->error("Error: HTTP {$httpCode} - Response: {$response}");
+        $this->logger->error("Error: HTTP {$httpCode} - Response: {$response}","SYSTEM");
 
         return [
             'error' => true,

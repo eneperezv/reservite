@@ -233,6 +233,8 @@ if (!isset($_SESSION['auth_token'])) {
             include '../src/Pages/main_menu.php';
             if($_GET['page']=='main'){
                 include '../src/Pages/main.php';
+            }elseif($_GET['page']=='clients'){
+                include '../src/Pages/clients.php';
             }
             ?>
         </div>

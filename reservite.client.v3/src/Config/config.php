@@ -19,7 +19,7 @@ return [
     'endpoints' => [
         'auth' => '/auth',
         'get_user' => '/user',
-        'get_clients' => '/clients',
+        'get_clients' => '/client/by-nombre/dani',
         'create_reservation' => '/reservations',
     ],
     'timezone' => 'America/Bogota',  // Configuración del timezone
