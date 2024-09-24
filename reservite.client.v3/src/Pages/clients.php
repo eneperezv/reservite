@@ -25,7 +25,7 @@ if(isset($_POST['btnBuscar'])){
     }
     $query = $_POST['txtCliente'];
     $apiService = new App\Services\ApiService($config['api_url'], $token, $logger);
-    $response = $apiService->get($config['endpoints']['get_clients'].$query);
+    $response = $apiService->get($config['endpoints']['get_clients_by_name'].$query);
     if (isset($response['error'])) {
         $logger->error("Error al obtener los clientes: " . json_encode($response),$_SESSION['username']);
         die('Error al obtener los datos de clientes.');

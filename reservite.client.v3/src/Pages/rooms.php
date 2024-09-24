@@ -49,6 +49,22 @@ if(isset($_POST['btnBuscar'])){
     $dat = true;
 }
 if(isset($_GET['booking'])){
+    $url_request = $config['endpoints']['get_rooms_by_number'].$_GET['booking'];
+    $apiService = new App\Services\ApiService($config['api_url'], $token, $logger);
+    $response = $apiService->get($url_request);
+    if (isset($response['error'])) {
+        $logger->error("Error al obtener rooms: " . json_encode($response),$_SESSION['username']);
+        die('Error al obtener los rooms.');
+    }
+    $rooms = $response;
+    $url_request = $config['endpoints']['get_clients'];
+    $apiService = new App\Services\ApiService($config['api_url'], $token, $logger);
+    $responseCli = $apiService->get($url_request);
+    if (isset($response['error'])) {
+        $logger->error("Error al obtener rooms: " . json_encode($response),$_SESSION['username']);
+        die('Error al obtener los rooms.');
+    }
+    $clientes = $responseCli;
     $book = true;
 }
 ?>
@@ -129,9 +145,11 @@ if(isset($_GET['booking'])){
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <p><?php print 'Roomnumber: '.$_GET['booking']; ?></p>
+                        <p><?php echo var_dump($rooms); ?></p>
                         <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <p><?php echo var_dump($clientes); ?></p>
                         <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
                     </div>
                 </div>

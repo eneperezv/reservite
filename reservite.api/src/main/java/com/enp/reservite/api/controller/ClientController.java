@@ -77,5 +77,21 @@ public class ClientController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	@GetMapping("/client")
+	public ResponseEntity<?> findClientesAll(){
+		List<Client> lista = new ArrayList<Client>();
+		try{
+			clientService.findAll().forEach(lista::add);
+			if(lista.isEmpty()) {
+				ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.OK.toString(),"NO CONTENT");
+				return new ResponseEntity<>(err,HttpStatus.OK);
+			}
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+		}catch(Exception e){
+			ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.INTERNAL_SERVER_ERROR.toString(),"INTERNAL SERVER ERROR");
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 
 }

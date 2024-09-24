@@ -19,7 +19,8 @@ return [
     'endpoints' => [
         'auth' => '/auth',
         'get_user' => '/user',
-        'get_clients' => '/client/by-nombre/',
+        'get_clients_by_name' => '/client/by-nombre/',
+        'get_clients' => '/client',
         'get_hotels' => '/hotel',
         'get_rooms_by_hotel' => '/room/by-hotel/',
         'get_rooms_by_number' => '/room/by-number/',
