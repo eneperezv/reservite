@@ -1,3 +1,19 @@
+<?php
+/*
+ * @(#)main.php 1.0 22/09/2024
+ * 
+ * El código implementado en este formulario esta protegido
+ * bajo las leyes internacionales del Derecho de Autor, sin embargo
+ * se entrega bajo las condiciones de la General Public License (GNU GPLv3)
+ * descrita en https://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+/**
+ * @author eliezer.navarro
+ * @version 1.0 | 22/09/2024
+ * @since 1.0
+ */ 
+?>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Dashboard</h1>
