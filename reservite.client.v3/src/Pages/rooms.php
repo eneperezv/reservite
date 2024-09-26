@@ -144,6 +144,7 @@ if(isset($_GET['booking'])){
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <?php /* PENDIENTE CREAR FORMULARIO PARA DATOS DE LA HABITACION Y DEL HOTEL */ ?>
                         <p><?php print 'Roomnumber: '.$_GET['booking']; ?></p>
                         <p><?php echo var_dump($rooms); ?></p>
                         <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
