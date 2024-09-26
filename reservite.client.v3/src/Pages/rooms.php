@@ -150,7 +150,8 @@ if(isset($_GET['booking'])){
                         <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                    <?php /* PENDIENTE CARGAR LISTA DE CLIENTES Y POSIBLE BUSCADOR */ ?>
+                        <?php /* PENDIENTE CARGAR LISTA DE CLIENTES Y POSIBLE BUSCADOR */ ?>
+                        <?php /* PENDIENTE AL SELECCIONAR CLIENTE SE RECARGA LA PAGINA? O SE LEE DESDE LA SELECCION? */ ?>
                         <p><?php echo var_dump($clientes); ?></p>
                         <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
                     </div>
