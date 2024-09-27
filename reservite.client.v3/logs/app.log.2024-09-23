@@ -1,0 +1,5 @@
+[2024-09-23 22:37:44] [ERROR] [enp] - Error de autenticación.
+[2024-09-24 05:38:16] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/hotel - Response code: 200
+[2024-09-24 05:38:20] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-hotel/1 - Response code: 200
+[2024-09-24 05:38:25] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/104 - Response code: 200
+[2024-09-24 05:38:25] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200

@@ -23,9 +23,9 @@ class ApiService
 
     public function __construct($baseUrl, $token, Logger $logger)
     {
-        $this->baseUrl = rtrim($baseUrl, '/');  // URL base sin barra final
-        $this->token = $token;  // Token JWT
-        $this->logger = $logger;  // Instancia del Logger
+        $this->baseUrl = rtrim($baseUrl, '/');
+        $this->token = $token;
+        $this->logger = $logger;
     }
 
     public function get($endpoint, $params = [])
@@ -94,7 +94,6 @@ class ApiService
             return $decodedResponse;
         }
 
-        // Registrar el error en el log
         $this->logger->error("Error: HTTP {$httpCode} - Response: {$response}","SYSTEM");
 
         return [
