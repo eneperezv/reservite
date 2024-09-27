@@ -138,189 +138,55 @@ if(isset($_GET['booking'])){
             <div class="bd-example m-0 border-0">
                 <nav>
                     <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Habitacion</button>
-                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Cliente</button>
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Room</button>
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Client</button>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <?php if (!empty($rooms)): ?>
                             <?php foreach ($rooms as $room): ?>
-
-
-
-
                                 <div class="col-12">
-                                    <form class="needs-validation" novalidate>
-                                        <div class="row g-3">
-                                            <div class="col-sm-4">
-                                                <label for="txtPiso" class="form-label">Piso</label>
-                                                <input type="text" class="form-control" name="txtPiso" value="<?php print $room['floor']; ?>" required>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <label for="lastName" class="form-label">Last name</label>
-                                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                                                <div class="invalid-feedback">
-                                                    Valid last name is required.
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <label for="lastName" class="form-label">Last name</label>
-                                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                                                <div class="invalid-feedback">
-                                                    Valid last name is required.
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="username" class="form-label">Username</label>
-                                                <div class="input-group has-validation">
-                                                    <span class="input-group-text">@</span>
-                                                    <input type="text" class="form-control" id="username" placeholder="Username" required>
-                                                    <div class="invalid-feedback">
-                                                        Your username is required.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
-                                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                                                <div class="invalid-feedback">
-                                                    Please enter a valid email address for shipping updates.
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="address" class="form-label">Address</label>
-                                                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                                                <div class="invalid-feedback">
-                                                    Please enter your shipping address.
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="address2" class="form-label">Address 2 <span class="text-body-secondary">(Optional)</span></label>
-                                                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                                            </div>
-                                            <div class="col-md-5">
-                                                <label for="country" class="form-label">Country</label>
-                                                <select class="form-select" id="country" required>
-                                                    <option value="">Choose...</option>
-                                                    <option>United States</option>
-                                                </select>
-                                                <div class="invalid-feedback">
-                                                    Please select a valid country.
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="state" class="form-label">State</label>
-                                                <select class="form-select" id="state" required>
-                                                    <option value="">Choose...</option>
-                                                    <option>California</option>
-                                                </select>
-                                                <div class="invalid-feedback">
-                                                    Please provide a valid state.
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="zip" class="form-label">Zip</label>
-                                                <input type="text" class="form-control" id="zip" placeholder="" required>
-                                                <div class="invalid-feedback">
-                                                    Zip code required.
-                                                </div>
-                                            </div>
+                                    <div class="row g-3">
+                                        <div class="col-sm-4">
+                                            <label for="txtPiso" class="form-label">Floor</label>
+                                            <input type="text" class="form-control" name="txtPiso" value="<?php print $room['floor']; ?>" required>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="txtCapacidad" class="form-label">Capacity</label>
+                                            <input type="text" class="form-control" name="txtCapacidad" value="<?php print $room['capacity']; ?>" required>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="txtRoomNumber" class="form-label">Piso</label>
+                                            <input type="text" class="form-control" name="txtRoomNumber" value="<?php print $room['roomnumber']; ?>" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="txtDescription" class="form-label">Description</label>
+                                            <textarea class="form-control" name="txtDescription"><?php print $room['description']; ?></textarea>
                                         </div>
                                         <hr class="my-4">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="same-address">
-                                            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
+                                        <div class="col-sm-4">
+                                            <label for="txtHotel" class="form-label">Hotel</label>
+                                            <input type="text" class="form-control" name="txtHotel" value="<?php print $room['hotel']['name']; ?>" required>
                                         </div>
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="save-info">
-                                            <label class="form-check-label" for="save-info">Save this information for next time</label>
+                                        <div class="col-sm-4">
+                                            <label for="txtAddress" class="form-label">Address</label>
+                                            <input type="text" class="form-control" name="txtAddress" value="<?php print $room['hotel']['name']; ?>" required>
                                         </div>
-                                        <hr class="my-4">
-                                        <h4 class="mb-3">Payment</h4>
-                                        <div class="my-3">
-                                            <div class="form-check">
-                                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                                                <label class="form-check-label" for="credit">Credit card</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-                                                <label class="form-check-label" for="debit">Debit card</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                                                <label class="form-check-label" for="paypal">PayPal</label>
-                                            </div>
+                                        <div class="col-sm-4">
+                                            <label for="txtPhone" class="form-label">Phone</label>
+                                            <input type="text" class="form-control" name="txtPhone" value="<?php print $room['hotel']['name']; ?>" required>
                                         </div>
-                                        <div class="row gy-3">
-                                            <div class="col-md-6">
-                                                <label for="cc-name" class="form-label">Name on card</label>
-                                                <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                                                <small class="text-body-secondary">Full name as displayed on card</small>
-                                                <div class="invalid-feedback">
-                                                    Name on card is required
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="cc-number" class="form-label">Credit card number</label>
-                                                <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                                                <div class="invalid-feedback">
-                                                    Credit card number is required
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="cc-expiration" class="form-label">Expiration</label>
-                                                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                                                <div class="invalid-feedback">
-                                                    Expiration date required
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="cc-cvv" class="form-label">CVV</label>
-                                                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                                                <div class="invalid-feedback">
-                                                    Security code required
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr class="my-4">
-                                        <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
-                                    </form>
+                                        <input type="hidden" name="txtIdRoom" value="<?php print $room['id']; ?>">
+                                        <input type="hidden" name="txtIdHotel" value="<?php print $room['hotel']['id']; ?>">
+                                    </div>
                                 </div>
-
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
                                 <td colspan="5">No se encontraron habitaciones.</td>
                             </tr>
                         <?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <p><?php print 'Roomnumber: '.$_GET['booking']; ?></p>
-                        <p><?php echo var_dump($rooms); ?></p>
-                        <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <?php /* PENDIENTE CARGAR LISTA DE CLIENTES Y POSIBLE BUSCADOR */ ?>
