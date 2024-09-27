@@ -71,8 +71,8 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="card mb-4">
-                                    <div class="card-body">
+                                <div class="card mb-4 bg-success bg-gradient">
+                                    <div class="card-body imagenback">
                                         <div class="lead">Total Downloads 5</div>
                                         <h2 class="card-title">1,057,891</h2>
                                         <p class="small text-muted">Oct 1 - Dec 31,<i class="fa fa-globe"></i> Worldwide</p>
