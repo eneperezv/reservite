@@ -33,7 +33,53 @@
                 </div>
                 <div class="row g-3">
                     <div class="col-8">
-                        1
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="lead">Total Downloads 1</div>
+                                        <h2 class="card-title">1,057,891</h2>
+                                        <p class="small text-muted">Oct 1 - Dec 31,<i class="fa fa-globe"></i> Worldwide</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="lead">Total Downloads 2</div>
+                                        <h2 class="card-title">1,057,891</h2>
+                                        <p class="small text-muted">Oct 1 - Dec 31,<i class="fa fa-globe"></i> Worldwide</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="lead">Total Downloads 3</div>
+                                        <h2 class="card-title">1,057,891</h2>
+                                        <p class="small text-muted">Oct 1 - Dec 31,<i class="fa fa-globe"></i> Worldwide</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="lead">Total Downloads 4</div>
+                                        <h2 class="card-title">1,057,891</h2>
+                                        <p class="small text-muted">Oct 1 - Dec 31,<i class="fa fa-globe"></i> Worldwide</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="lead">Total Downloads 5</div>
+                                        <h2 class="card-title">1,057,891</h2>
+                                        <p class="small text-muted">Oct 1 - Dec 31,<i class="fa fa-globe"></i> Worldwide</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-4">
                         <div class="card">
