@@ -18,6 +18,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Dashboard</h1>
+                    <?php /*
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
                             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -28,7 +29,61 @@
                             This week
                         </button>
                     </div>
+                    */ ?>
                 </div>
+                <div class="row g-3">
+                    <div class="col-8">
+                        1
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <h2 class="card-title lead p-4 border-bottom" style="font-weight: 600">Events</h2>
+                            <div class="pane border-bottom p-3">
+                                <i class="far fa-3x fa-calendar-alt text-danger ms-2" aria-hidden="true"></i>
+                                <div class="ms-3">
+                                    <h2 class="card-title mb-1 lead" style="font-weight: 600">Newmarket Nights</h2>
+                                    <p class="card-text mb-2">Organized by University of Oxford</p>
+                                    <p class="card-text mb-0 small text-muted">Time: 6:00AM</p>
+                                    <p class="card-text mb-0 small text-muted">
+                                        Place: Cambridge Boat Club, Cambridge
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pane border-bottom p-3">
+                                <i class="far fa-3x fa-calendar-alt text-danger" aria-hidden="true"></i>
+                                <div class="ms-3">
+                                    <h2 class="card-title mb-1 lead" style="font-weight: 600">
+                                        Noco Hemp Expo
+                                    </h2>
+                                    <p class="card-text mb-2">Organized by University of Oxford</p>
+                                    <p class="card-text mb-0 small text-muted">
+                                        Thu, 12 Sep - Sat, 18 Sep 2020
+                                    </p>
+                                    <p class="card-text mb-0 small text-muted">
+                                        Place: Denver Expo Club, USA
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pane border-bottom p-3">
+                                <i class="far fa-3x fa-calendar-alt text-danger ms-2" aria-hidden="true"></i>
+                                <div class="ms-3">
+                                    <h2 class="card-title mb-1 lead" style="font-weight: 600">
+                                        Canadian National Exhibition (CNE)
+                                    </h2>
+                                    <p class="card-text mb-2">Organized by University of Oxford</p>
+                                    <p class="card-text mb-0 small text-muted">
+                                        Fri, 20 Sep - Mon, 07 Oct 2020
+                                    </p>
+                                    <p class="card-text mb-0 small text-muted">
+                                        Place: Toronto , Canada
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="card-text p-4 text-center pointer border-top">See All</p>
+                        </div>
+                    </div>
+                </div>
+                <?php /*
                 <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
                 <h2>Section title</h2>
                 <div class="table-responsive small">
@@ -158,4 +213,5 @@
                         </tbody>
                     </table>
                 </div>
+                */ ?>
             </main>
