@@ -28,7 +28,7 @@ public class DashboardController {
 	public ResponseEntity<?> findBookings(){
 		Dashboard resultado = new Dashboard();
 		try{
-			resultado = dashboardService.getData();
+			resultado = dashboardService.getDashboardStats();
 			//bookingService.findAll().forEach(lista::add);
 			if(resultado == null) {
 				ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.OK.toString(),"NO CONTENT");
