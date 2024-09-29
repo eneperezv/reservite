@@ -1,9 +1,30 @@
 package com.enp.reservite.api.entity;
 
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="dbo_dashboard")
 public class Dashboard {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name="id_dashboard", unique=true, nullable=false)
+	private Integer id;
+	
+	@Column(name="clientsCount")
 	private Long clientsCount;
+	
+	@Column(name="availableRoomsCount")
 	private Long availableRoomsCount;
+	
+	@Column(name="bookingsCount")
 	private Long bookingsCount;
 	
 	public Dashboard() {
