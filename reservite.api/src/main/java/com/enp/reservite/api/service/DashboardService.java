@@ -13,7 +13,14 @@ public class DashboardService {
 	DashboardRepository dashboardRepository;
 
 	public Dashboard getData() {
-		return dashboardRepository.getData();
+		Object[] result = dashboardRepository.getDashboardStats();
+		
+		Long totalClientes = Long.parseLong(result[0].toString());// ((Number) result[0]).longValue();
+        Long habitacionesDisponibles = Long.parseLong(result[1].toString());// ((Number) result[1]).longValue();
+        Long totalReservas = Long.parseLong(result[2].toString());// ((Number) result[2]).longValue();
+        
+        
+		return new Dashboard(totalClientes,habitacionesDisponibles,totalReservas);
 	}
 
 }

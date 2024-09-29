@@ -36,7 +36,7 @@ public class DashboardController {
 			}
 			return new ResponseEntity<Dashboard>(resultado, HttpStatus.OK);
 		}catch(Exception e){
-			ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.INTERNAL_SERVER_ERROR.toString(),"INTERNAL SERVER ERROR");
+			ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.INTERNAL_SERVER_ERROR.toString(),"INTERNAL SERVER ERROR ->" + e.getMessage());
 			return new ResponseEntity<ErrorDetails>(err, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
