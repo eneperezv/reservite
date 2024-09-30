@@ -35,9 +35,13 @@ $totalClientes = $dashdata['clientsCount'];
 $habitacionesDisponibles = $dashdata['availableRoomsCount'];
 $totalReservas = $dashdata['bookingsCount'];
 
-//echo 'clientsCount->'.$totalClientes.'<br>';
-//echo 'availableRoomsCount->'.$habitacionesDisponibles.'<br>';
-//echo 'bookingsCount->'.$totalReservas.'<br>';
+$apiService = new App\Services\ApiService($config['api_url'], $token, $logger);
+$response = $apiService->get($config['endpoints']['get_notifications']);
+if (isset($response['error'])) {
+    $logger->error("Error al obtener los clientes: " . json_encode($response),$_SESSION['username']);
+    die('Error al obtener los datos de clientes.');
+}
+$notifications = $response;
 ?>
 <?php /* PENDIENTE ELIMINAR DATOS QUE SE MUESTRAN Y CARGAR WIDGETS CON DATOS (CLIENTES,HABITACIONES DISPONIBLES,RESERVAS, ETC) */ ?>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -107,18 +111,31 @@ $totalReservas = $dashdata['bookingsCount'];
                     </div>
                     <div class="col-4">
                         <div class="card">
-                            <h2 class="card-title lead p-4 border-bottom" style="font-weight: 600">Events</h2>
-                            <div class="pane border-bottom p-3">
-                                <i class="far fa-3x fa-calendar-alt text-danger ms-2" aria-hidden="true"></i>
-                                <div class="ms-3">
-                                    <h2 class="card-title mb-1 lead" style="font-weight: 600">Newmarket Nights</h2>
-                                    <p class="card-text mb-2">Organized by University of Oxford</p>
-                                    <p class="card-text mb-0 small text-muted">Time: 6:00AM</p>
-                                    <p class="card-text mb-0 small text-muted">
-                                        Place: Cambridge Boat Club, Cambridge
-                                    </p>
-                                </div>
-                            </div>
+                            <h2 class="card-title lead p-4 border-bottom" style="font-weight: 600">Notifications</h2>
+                            <?php if (!empty($notifications)): ?>
+                                <?php foreach ($notifications as $notif): ?>
+                                    <div class="pane border-bottom p-3">
+                                        <?php /*
+                                        <i class="bi bi-people-fill"></i>
+                                        */ ?>
+                                        <div class="ms-3">
+                                            <?php /*
+                                            <h2 class="card-title mb-1 lead" style="font-weight: 600">Newmarket Nights</h2>
+                                            */ ?>
+                                            <p class="card-text mb-2"><?php echo $notif['value']; ?></p>
+                                            <p class="card-text mb-0 small text-muted">
+                                                <i class="bi bi-calendar"></i> <?php echo $notif['date_notification']; ?>
+                                            </p>
+                                            <?php /*
+                                            <p class="card-text mb-0 small text-muted">
+                                                Place: Cambridge Boat Club, Cambridge
+                                            </p>
+                                            */ ?>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                            <?php /*
                             <div class="pane border-bottom p-3">
                                 <i class="far fa-3x fa-calendar-alt text-danger" aria-hidden="true"></i>
                                 <div class="ms-3">
@@ -150,6 +167,7 @@ $totalReservas = $dashdata['bookingsCount'];
                                 </div>
                             </div>
                             <p class="card-text p-4 text-center pointer border-top">See All</p>
+                            */ ?>
                         </div>
                     </div>
                 </div>
