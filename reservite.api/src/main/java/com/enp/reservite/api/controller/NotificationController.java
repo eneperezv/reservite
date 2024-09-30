@@ -30,7 +30,7 @@ public class NotificationController {
 	public ResponseEntity<?> findBookings(){
 		List<Notification> lista = new ArrayList<Notification>();
 		try{
-			notificationService.findAll().forEach(lista::add);
+			notificationService.findAllByOrderByIdDesc().forEach(lista::add);
 			if(lista.isEmpty()) {
 				ErrorDetails err = new ErrorDetails(new Date(),HttpStatus.OK.toString(),"NO CONTENT");
 				return new ResponseEntity<ErrorDetails>(err,HttpStatus.OK);

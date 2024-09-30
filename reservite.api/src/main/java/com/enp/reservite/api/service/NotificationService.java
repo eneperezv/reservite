@@ -18,6 +18,10 @@ public class NotificationService {
 		return notificationRepository.findAll();
 	}
 	
+	public List<Notification> findAllByOrderByIdDesc(){
+		return notificationRepository.findAllByOrderByIdDesc();
+	}
+	
 	public void save(Notification notification) {
 		notificationRepository.save(notification);
 	}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-09-2024 a las 20:52:57
+-- Tiempo de generación: 30-09-2024 a las 06:14:03
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -46,9 +46,7 @@ CREATE TABLE `dbo_booking` (
 --
 
 INSERT INTO `dbo_booking` (`id_booking`, `date_checkin`, `date_checkout`, `date_expire`, `qrcode`, `status`, `id_client`, `id_room`, `mailsent`) VALUES
-(1, '2024-09-21 10:00:00.000000', '2024-09-22 07:00:00.000000', '2024-09-21 15:00:00.000000', '5111cc7ef3bd2911e712f4202c0cd080', 1, 5, 1, NULL),
-(4, '2024-10-21 10:00:00.000000', '2024-10-22 07:00:00.000000', '2024-10-21 15:00:00.000000', '49711adb0d8fb242f8adc4ed2faff838', NULL, 3, 2, NULL),
-(5, '2024-10-21 10:00:00.000000', '2024-10-22 07:00:00.000000', '2024-10-21 15:00:00.000000', '567bdea0805e24fa547813c8f3f9db1b', 1, 3, 3, 0);
+(1, '2024-09-21 10:00:00.000000', '2024-09-22 07:00:00.000000', '2024-09-21 15:00:00.000000', '5111cc7ef3bd2911e712f4202c0cd080', 1, 5, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -113,26 +111,6 @@ INSERT INTO `dbo_hotel` (`id_hotel`, `address`, `email`, `name`, `phone`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `dbo_notification`
---
-
-CREATE TABLE `dbo_notification` (
-  `id_notification` int(11) NOT NULL,
-  `date_notification` datetime(6) DEFAULT NULL,
-  `value` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `dbo_notification`
---
-
-INSERT INTO `dbo_notification` (`id_notification`, `date_notification`, `value`) VALUES
-(1, '2024-09-30 13:45:33.000000', 'New Booking | 102 | Jose Perez'),
-(2, '2024-09-30 13:49:37.000000', 'New Booking | Room #103 | Jose Perez');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `dbo_room`
 --
 
@@ -153,8 +131,8 @@ CREATE TABLE `dbo_room` (
 
 INSERT INTO `dbo_room` (`id_room`, `capacity`, `description`, `floor`, `number`, `status`, `id_hotel`, `roomnumber`) VALUES
 (1, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 1, 0, 1, '101'),
-(2, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 2, 0, 1, '102'),
-(3, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 3, 0, 1, '103'),
+(2, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 2, 1, 1, '102'),
+(3, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 3, 1, 1, '103'),
 (4, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 4, 1, 1, '104'),
 (5, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 5, 1, 1, '105'),
 (6, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 1, 1, 1, '201'),
@@ -221,12 +199,6 @@ ALTER TABLE `dbo_hotel`
   ADD PRIMARY KEY (`id_hotel`);
 
 --
--- Indices de la tabla `dbo_notification`
---
-ALTER TABLE `dbo_notification`
-  ADD PRIMARY KEY (`id_notification`);
-
---
 -- Indices de la tabla `dbo_room`
 --
 ALTER TABLE `dbo_room`
@@ -247,7 +219,7 @@ ALTER TABLE `dbo_users`
 -- AUTO_INCREMENT de la tabla `dbo_booking`
 --
 ALTER TABLE `dbo_booking`
-  MODIFY `id_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `dbo_client`
@@ -266,12 +238,6 @@ ALTER TABLE `dbo_dashboard`
 --
 ALTER TABLE `dbo_hotel`
   MODIFY `id_hotel` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `dbo_notification`
---
-ALTER TABLE `dbo_notification`
-  MODIFY `id_notification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `dbo_room`

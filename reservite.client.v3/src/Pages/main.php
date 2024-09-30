@@ -43,39 +43,13 @@ $totalReservas = $dashdata['bookingsCount'];
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Dashboard</h1>
-                    <?php //if (!empty($dashdata)): ?>
-                        <?php //foreach ($dashdata as $dash): ?>
-                            <?php 
-                            /*
-                            list($totalClientes, $habitacionesDisponibles, $totalReservas) = $dash;
-                            echo 'clientsCount->'.$totalClientes.'<br>';
-                            echo 'availableRoomsCount->'.$habitacionesDisponibles.'<br>';
-                            echo 'bookingsCount->'.$totalReservas.'<br>';
-                            */
-                            ?>
-                        <?php //endforeach; ?>
-                    <?php //endif; ?>
-                    <?php 
-                    ///echo var_dump($dash);
-                    /*
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <div class="btn-group me-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-                        </div>
-                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
-                            <svg class="bi"><use xlink:href="#calendar3"/></svg>
-                            This week
-                        </button>
-                    </div>
-                    */ ?>
                 </div>
                 <div class="row g-3">
                     <div class="col-8">
                         <div class="row">
                             <div class="col-6">
-                                <div class="card mb-4">
-                                    <div class="card-body">
+                                <div class="card mb-4 bg-secondary bg-gradient">
+                                    <div class="card-body icon-clients">
                                         <div class="lead">Clients</div>
                                         <h2 class="card-title"><?php echo $totalClientes; ?></h2>
                                         <?php 
@@ -86,8 +60,8 @@ $totalReservas = $dashdata['bookingsCount'];
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="card mb-4">
-                                    <div class="card-body">
+                                <div class="card mb-4 bg-secondary bg-gradient">
+                                    <div class="card-body icon-rooms">
                                         <div class="lead">Available Rooms</div>
                                         <h2 class="card-title"><?php echo $habitacionesDisponibles; ?></h2>
                                         <?php 
@@ -98,8 +72,8 @@ $totalReservas = $dashdata['bookingsCount'];
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="card mb-4">
-                                    <div class="card-body">
+                                <div class="card mb-4 bg-success bg-gradient">
+                                    <div class="card-body icon-bookings">
                                         <div class="lead">Bookings</div>
                                         <h2 class="card-title"><?php echo $totalReservas; ?></h2>
                                         <?php 

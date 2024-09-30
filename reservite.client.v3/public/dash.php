@@ -105,8 +105,26 @@ if (!isset($_SESSION['auth_token'])) {
         .bd-mode-toggle .dropdown-menu .active .bi {
             display: block !important;
         }
-        .imagenback {
-            background:url("assets/img/posicionamiento-en-buscadores.png") no-repeat scroll 85px;
+        .icon-clients {
+            background:url("assets/img/reunion.png") no-repeat scroll 85px;
+            background-position: top right;
+            background-origin: content-box;
+            float:left;
+            color:#333;
+            font-weight:bold;
+            padding-right:25px;
+        }
+        .icon-rooms {
+            background:url("assets/img/recurso.png") no-repeat scroll 85px;
+            background-position: top right;
+            background-origin: content-box;
+            float:left;
+            color:#333;
+            font-weight:bold;
+            padding-right:25px;
+        }
+        .icon-bookings {
+            background:url("assets/img/bolsa-de-dinero.png") no-repeat scroll 85px;
             background-position: top right;
             background-origin: content-box;
             float:left;
@@ -115,6 +133,21 @@ if (!isset($_SESSION['auth_token'])) {
             padding-right:25px;
         }
     </style>
+    <script>
+        /*
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }else{ 
+            console.log("not supported");
+        }
+        function showPosition(position){
+            var latt = position.coords.latitude;
+            var long = position.coords.longitude;
+            console.log(latt);
+            console.log(long);
+        }
+        */
+    </script>
     <!-- Custom styles for this template -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
