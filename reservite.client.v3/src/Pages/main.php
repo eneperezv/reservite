@@ -13,12 +13,51 @@
  * @version 1.0 | 22/09/2024
  * @since 1.0
  */ 
+require_once __DIR__ . '/../../src/Services/ApiService.php';
+require_once __DIR__ . '/../../src/Services/Logger.php';
+use App\Services\Logger;
+$config = require __DIR__ . '/../../src/Config/config.php';
+
+$logger = new Logger();
+$token = $_SESSION['auth_token'] ?? null;
+if (!$token) {
+    die('Error: No autenticado.');
+}
+$apiService = new App\Services\ApiService($config['api_url'], $token, $logger);
+$response = $apiService->get($config['endpoints']['get_dashboard_data']);
+if (isset($response['error'])) {
+    $logger->error("Error al obtener los clientes: " . json_encode($response),$_SESSION['username']);
+    die('Error al obtener los datos de clientes.');
+}
+$dashdata = $response;
+
+$totalClientes = $dashdata['clientsCount'];
+$habitacionesDisponibles = $dashdata['availableRoomsCount'];
+$totalReservas = $dashdata['bookingsCount'];
+
+//echo 'clientsCount->'.$totalClientes.'<br>';
+//echo 'availableRoomsCount->'.$habitacionesDisponibles.'<br>';
+//echo 'bookingsCount->'.$totalReservas.'<br>';
 ?>
 <?php /* PENDIENTE ELIMINAR DATOS QUE SE MUESTRAN Y CARGAR WIDGETS CON DATOS (CLIENTES,HABITACIONES DISPONIBLES,RESERVAS, ETC) */ ?>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Dashboard</h1>
-                    <?php /*
+                    <?php //if (!empty($dashdata)): ?>
+                        <?php //foreach ($dashdata as $dash): ?>
+                            <?php 
+                            /*
+                            list($totalClientes, $habitacionesDisponibles, $totalReservas) = $dash;
+                            echo 'clientsCount->'.$totalClientes.'<br>';
+                            echo 'availableRoomsCount->'.$habitacionesDisponibles.'<br>';
+                            echo 'bookingsCount->'.$totalReservas.'<br>';
+                            */
+                            ?>
+                        <?php //endforeach; ?>
+                    <?php //endif; ?>
+                    <?php 
+                    ///echo var_dump($dash);
+                    /*
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
                             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -37,30 +76,40 @@
                             <div class="col-6">
                                 <div class="card mb-4">
                                     <div class="card-body">
-                                        <div class="lead">Total Downloads 1</div>
-                                        <h2 class="card-title">1,057,891</h2>
+                                        <div class="lead">Clients</div>
+                                        <h2 class="card-title"><?php echo $totalClientes; ?></h2>
+                                        <?php 
+                                        /*
                                         <p class="small text-muted">Oct 1 - Dec 31,<i class="fa fa-globe"></i> Worldwide</p>
+                                        */ ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="card mb-4">
                                     <div class="card-body">
-                                        <div class="lead">Total Downloads 2</div>
-                                        <h2 class="card-title">1,057,891</h2>
+                                        <div class="lead">Available Rooms</div>
+                                        <h2 class="card-title"><?php echo $habitacionesDisponibles; ?></h2>
+                                        <?php 
+                                        /*
                                         <p class="small text-muted">Oct 1 - Dec 31,<i class="fa fa-globe"></i> Worldwide</p>
+                                        */ ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="card mb-4">
                                     <div class="card-body">
-                                        <div class="lead">Total Downloads 3</div>
-                                        <h2 class="card-title">1,057,891</h2>
+                                        <div class="lead">Bookings</div>
+                                        <h2 class="card-title"><?php echo $totalReservas; ?></h2>
+                                        <?php 
+                                        /*
                                         <p class="small text-muted">Oct 1 - Dec 31,<i class="fa fa-globe"></i> Worldwide</p>
+                                        */ ?>
                                     </div>
                                 </div>
                             </div>
+                            <?php /*
                             <div class="col-6">
                                 <div class="card mb-4">
                                     <div class="card-body">
@@ -79,6 +128,7 @@
                                     </div>
                                 </div>
                             </div>
+                            */ ?>
                         </div>
                     </div>
                     <div class="col-4">

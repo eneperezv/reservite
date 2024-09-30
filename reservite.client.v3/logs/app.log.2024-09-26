@@ -1,0 +1,33 @@
+[2024-09-27 05:03:35] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/hotel - Response code: 200
+[2024-09-27 05:03:38] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-hotel/1 - Response code: 200
+[2024-09-27 05:03:40] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:03:40] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:08:03] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:08:03] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:17:38] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:17:38] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:18:09] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:18:09] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:43:44] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 0
+[2024-09-27 05:43:44] [ERROR] [SYSTEM] - Error: HTTP 0 - Response: 
+[2024-09-27 05:43:44] [ERROR] [enp] - Error al obtener rooms: {"error":true,"status_code":0,"response":false}
+[2024-09-27 05:43:59] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:43:59] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:47:17] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:47:17] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:47:54] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:47:54] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:51:01] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:51:01] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:51:11] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:51:11] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:54:20] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:54:20] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:54:47] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:54:47] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:55:10] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:55:10] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:55:48] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:55:48] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
+[2024-09-27 05:57:04] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/room/by-number/103 - Response code: 200
+[2024-09-27 05:57:04] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/client - Response code: 200
