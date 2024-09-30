@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-09-2024 a las 06:14:03
+-- Tiempo de generación: 24-09-2024 a las 05:40:47
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -72,19 +72,6 @@ INSERT INTO `dbo_client` (`id_client`, `address`, `email`, `name`, `phone`) VALU
 (3, 'Calle 30', 'jose@hotmail.com', 'Jose Perez', '8744444'),
 (4, 'Calle 89', 'anto@hotmail.com', 'Antonio Rodriguez', '3254414'),
 (5, 'Calle 50', 'npeliezere@gmail.com', 'Eliezer Navarro Pérez', '5524545');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `dbo_dashboard`
---
-
-CREATE TABLE `dbo_dashboard` (
-  `id_dashboard` int(11) NOT NULL,
-  `available_rooms_count` bigint(20) DEFAULT NULL,
-  `bookings_count` bigint(20) DEFAULT NULL,
-  `clients_count` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -187,12 +174,6 @@ ALTER TABLE `dbo_client`
   ADD PRIMARY KEY (`id_client`);
 
 --
--- Indices de la tabla `dbo_dashboard`
---
-ALTER TABLE `dbo_dashboard`
-  ADD PRIMARY KEY (`id_dashboard`);
-
---
 -- Indices de la tabla `dbo_hotel`
 --
 ALTER TABLE `dbo_hotel`
@@ -226,12 +207,6 @@ ALTER TABLE `dbo_booking`
 --
 ALTER TABLE `dbo_client`
   MODIFY `id_client` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de la tabla `dbo_dashboard`
---
-ALTER TABLE `dbo_dashboard`
-  MODIFY `id_dashboard` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `dbo_hotel`
