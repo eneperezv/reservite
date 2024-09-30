@@ -81,6 +81,8 @@ public class WebSecurityConfig {
                     registry.requestMatchers(HttpMethod.GET , "/api/v1/reservite/booking").hasRole("USER");
                     //DASHBOARD
                     registry.requestMatchers(HttpMethod.GET , "/api/v1/reservite/dashboard").hasRole("USER");
+                    //NOTIFICATIONS
+                    registry.requestMatchers(HttpMethod.GET , "/api/v1/reservite/notification").hasRole("USER");
                     /*
                     registry.requestMatchers(HttpMethod.GET,  "/api/v1/taskflow/task/followup/**").hasRole("USER");
                     registry.requestMatchers(HttpMethod.POST, "/api/v1/taskflow/task/followup").hasRole("USER");

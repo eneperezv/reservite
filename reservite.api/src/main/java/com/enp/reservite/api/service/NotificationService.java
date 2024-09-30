@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.enp.reservite.api.entity.Notification;
+import com.enp.reservite.api.repository.NotificationRepository;
 
 @Service
 public class NotificationService {
