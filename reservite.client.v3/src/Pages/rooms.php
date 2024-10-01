@@ -171,11 +171,11 @@ if(isset($_GET['booking'])){
                                         </div>
                                         <div class="col-sm-4">
                                             <label for="txtAddress" class="form-label">Address</label>
-                                            <input type="text" class="form-control" name="txtAddress" value="<?php print $room['hotel']['name']; ?>" required>
+                                            <input type="text" class="form-control" name="txtAddress" value="<?php print $room['hotel']['address']; ?>" required>
                                         </div>
                                         <div class="col-sm-4">
                                             <label for="txtPhone" class="form-label">Phone</label>
-                                            <input type="text" class="form-control" name="txtPhone" value="<?php print $room['hotel']['name']; ?>" required>
+                                            <input type="text" class="form-control" name="txtPhone" value="<?php print $room['hotel']['phone']; ?>" required>
                                         </div>
                                         <input type="hidden" name="txtIdRoom" value="<?php print $room['id']; ?>">
                                         <input type="hidden" name="txtIdHotel" value="<?php print $room['hotel']['id']; ?>">
@@ -189,10 +189,47 @@ if(isset($_GET['booking'])){
                         <?php endif; ?>
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <?php /* PENDIENTE CARGAR LISTA DE CLIENTES Y POSIBLE BUSCADOR */ ?>
-                        <?php /* PENDIENTE AL SELECCIONAR CLIENTE SE RECARGA LA PAGINA? O SE LEE DESDE LA SELECCION? */ ?>
-                        <p><?php echo var_dump($clientes); ?></p>
-                        <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                        <input type="text" class="form-control" id="txtClientSearch" onkeyup="tableFilter()" placeholder="Search for Client.." title="Type in a name">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm" id="tblClients">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <th>Dirección</th>
+                                        <th>Teléfono</th>
+                                        <th>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"/>
+                                            </svg>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if (!empty($clientes)): ?>
+                                        <?php foreach ($clientes as $cliente): ?>
+                                            <tr <?php if(isset($_GET['client'])) { if($cliente['id']==$_GET['client']){echo ' class="table-success"';} }?> >
+                                                <td><?php echo htmlspecialchars($cliente['id']); ?></td>
+                                                <td><?php echo htmlspecialchars($cliente['name']); ?></td>
+                                                <td><?php echo htmlspecialchars($cliente['email']); ?></td>
+                                                <td><?php echo htmlspecialchars($cliente['address']); ?></td>
+                                                <td><?php echo htmlspecialchars($cliente['phone']); ?></td>
+                                                <td>
+                                                    <a class="btn btn-primary btn-sm" href="dash.php?page=rooms&booking=<?php echo $_GET['booking'].'&client='.$cliente['id']; ?>">
+                                                        <i class="bi bi-check2-circle"></i> Select
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan="5">No se encontraron clientes.</td>
+                                        </tr>
+                                    <?php endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

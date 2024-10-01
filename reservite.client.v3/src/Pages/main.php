@@ -135,39 +135,6 @@ $notifications = $response;
                                     </div>
                                 <?php endforeach; ?>
                             <?php endif; ?>
-                            <?php /*
-                            <div class="pane border-bottom p-3">
-                                <i class="far fa-3x fa-calendar-alt text-danger" aria-hidden="true"></i>
-                                <div class="ms-3">
-                                    <h2 class="card-title mb-1 lead" style="font-weight: 600">
-                                        Noco Hemp Expo
-                                    </h2>
-                                    <p class="card-text mb-2">Organized by University of Oxford</p>
-                                    <p class="card-text mb-0 small text-muted">
-                                        Thu, 12 Sep - Sat, 18 Sep 2020
-                                    </p>
-                                    <p class="card-text mb-0 small text-muted">
-                                        Place: Denver Expo Club, USA
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="pane border-bottom p-3">
-                                <i class="far fa-3x fa-calendar-alt text-danger ms-2" aria-hidden="true"></i>
-                                <div class="ms-3">
-                                    <h2 class="card-title mb-1 lead" style="font-weight: 600">
-                                        Canadian National Exhibition (CNE)
-                                    </h2>
-                                    <p class="card-text mb-2">Organized by University of Oxford</p>
-                                    <p class="card-text mb-0 small text-muted">
-                                        Fri, 20 Sep - Mon, 07 Oct 2020
-                                    </p>
-                                    <p class="card-text mb-0 small text-muted">
-                                        Place: Toronto , Canada
-                                    </p>
-                                </div>
-                            </div>
-                            <p class="card-text p-4 text-center pointer border-top">See All</p>
-                            */ ?>
                         </div>
                     </div>
                 </div>

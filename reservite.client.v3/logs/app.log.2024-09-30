@@ -1,0 +1,17 @@
+[2024-09-30 12:13:11] [ERROR] [enp] - Error de autenticación.
+[2024-09-30 19:13:35] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 19:15:31] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 19:15:53] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 19:17:01] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 19:20:33] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 21:16:21] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 21:17:35] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 21:17:42] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 21:17:46] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 21:18:58] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 21:32:19] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 21:32:19] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/notification - Response code: 200
+[2024-09-30 21:38:50] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 21:38:50] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/notification - Response code: 200
+[2024-09-30 21:39:22] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/dashboard - Response code: 200
+[2024-09-30 21:39:22] [INFO] [SYSTEM] - GET request to http://localhost:8080/api/v1/reservite/notification - Response code: 200
