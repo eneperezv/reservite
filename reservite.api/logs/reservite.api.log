@@ -30,3 +30,7 @@
 2024-10-01T22:37:05.625-05:00  INFO 25196 --- [reservite.api] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-10-01T22:37:05.625-05:00  INFO 25196 --- [reservite.api] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-10-01T22:37:05.627-05:00  INFO 25196 --- [reservite.api] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-10-01T23:32:35.790-05:00  INFO 25196 --- [reservite.api] [RMI TCP Connection(60)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-10-01T23:32:35.838-05:00  INFO 25196 --- [reservite.api] [RMI TCP Connection(60)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01T23:32:35.845-05:00  INFO 25196 --- [reservite.api] [RMI TCP Connection(60)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-01T23:32:35.847-05:00  INFO 25196 --- [reservite.api] [RMI TCP Connection(60)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
