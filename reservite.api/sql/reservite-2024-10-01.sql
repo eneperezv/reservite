@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2024 a las 20:55:06
+-- Tiempo de generación: 02-10-2024 a las 06:33:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -48,9 +48,7 @@ CREATE TABLE `dbo_booking` (
 INSERT INTO `dbo_booking` (`id_booking`, `date_checkin`, `date_checkout`, `date_expire`, `qrcode`, `status`, `id_client`, `id_room`, `mailsent`) VALUES
 (1, '2024-09-21 10:00:00.000000', '2024-09-22 07:00:00.000000', '2024-09-21 15:00:00.000000', '5111cc7ef3bd2911e712f4202c0cd080', 1, 5, 1, NULL),
 (4, '2024-10-21 10:00:00.000000', '2024-10-22 07:00:00.000000', '2024-10-21 15:00:00.000000', '49711adb0d8fb242f8adc4ed2faff838', NULL, 3, 2, NULL),
-(5, '2024-10-21 10:00:00.000000', '2024-10-22 07:00:00.000000', '2024-10-21 15:00:00.000000', '567bdea0805e24fa547813c8f3f9db1b', 1, 3, 3, 0),
-(6, '2024-10-30 10:00:00.000000', '2024-10-31 07:00:00.000000', '2024-10-30 15:00:00.000000', '66b3c2653f9b7977ce99cda38a7cc9ba', 1, 4, 10, 0),
-(7, '2024-11-05 10:00:00.000000', '2024-11-07 07:00:00.000000', '2024-11-05 15:00:00.000000', '3b3c39807ea7bde7c91be404e58f0d43', 1, 3, 5, 0);
+(5, '2024-10-21 10:00:00.000000', '2024-10-22 07:00:00.000000', '2024-10-21 15:00:00.000000', '567bdea0805e24fa547813c8f3f9db1b', 1, 3, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -130,9 +128,7 @@ CREATE TABLE `dbo_notification` (
 
 INSERT INTO `dbo_notification` (`id_notification`, `date_notification`, `value`) VALUES
 (1, '2024-09-30 13:45:33.000000', 'New Booking | 102 | Jose Perez'),
-(2, '2024-09-30 13:49:37.000000', 'New Booking | Room #103 | Jose Perez'),
-(3, '2024-10-02 13:29:19.000000', 'New Booking | Room #205 | Antonio Rodriguez'),
-(4, '2024-10-02 13:31:44.000000', 'New Booking | Room #105 | Jose Perez');
+(2, '2024-09-30 13:49:37.000000', 'New Booking | Room #103 | Jose Perez');
 
 -- --------------------------------------------------------
 
@@ -160,12 +156,12 @@ INSERT INTO `dbo_room` (`id_room`, `capacity`, `description`, `floor`, `number`,
 (2, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 2, 0, 1, '102'),
 (3, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 3, 0, 1, '103'),
 (4, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 4, 1, 1, '104'),
-(5, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 5, 0, 1, '105'),
+(5, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 1, 5, 1, 1, '105'),
 (6, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 1, 1, 1, '201'),
 (7, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 2, 1, 1, '202'),
 (8, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 3, 1, 1, '203'),
 (9, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 4, 1, 1, '204'),
-(10, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 5, 0, 1, '205'),
+(10, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 2, 5, 1, 1, '205'),
 (11, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 3, 1, 1, 1, '301'),
 (12, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 3, 2, 1, 1, '302'),
 (13, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 3, 3, 1, 1, '303'),
@@ -251,7 +247,7 @@ ALTER TABLE `dbo_users`
 -- AUTO_INCREMENT de la tabla `dbo_booking`
 --
 ALTER TABLE `dbo_booking`
-  MODIFY `id_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `dbo_client`
@@ -275,7 +271,7 @@ ALTER TABLE `dbo_hotel`
 -- AUTO_INCREMENT de la tabla `dbo_notification`
 --
 ALTER TABLE `dbo_notification`
-  MODIFY `id_notification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_notification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `dbo_room`
