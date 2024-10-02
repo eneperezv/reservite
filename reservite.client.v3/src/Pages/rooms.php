@@ -150,10 +150,6 @@ $idroom = 0;
 
                             <?php if (!empty($rooms)): ?>
                                 <?php foreach ($rooms as $room): ?>
-                                    <?php 
-                                    //echo var_dump($room);
-                                    $idroom = $room['id']; 
-                                    ?>
                                     <div class="col-12">
                                         <div class="row g-3">
                                             <div class="col-sm-4">
@@ -240,6 +236,7 @@ $idroom = 0;
                             </div>
                         </div>
                         <div class="tab-pane fade" id="nav-date" role="tabpanel" aria-labelledby="nav-date-tab">
+                            <?php //echo 'token'.$_SESSION['auth_token'].'<br>'; ?>
                             <div class="row">
                                 <div class="col-6">
                                     <label for="txtCheckin" class="form-label">CheckIn</label>
@@ -260,9 +257,8 @@ $idroom = 0;
                     </div>
                 </div>
             </div>
-            <input type="text" value="<?php print $_GET['booking']; ?>" name="txtRoomnumber">
-            <input type="text" value="<?php print $idroom; ?>" name="txtIdroom">
-            <input type="text" value="<?php print $_GET['client']; ?>" name="txtIdClient">
+            <input type="hidden" value="<?php print $_GET['booking']; ?>" name="txtRoomnumber">
+            <input type="hidden" value="<?php print $_GET['client']; ?>" name="txtIdClient">
             <br><br>
             <button type="submit" class="btn btn-primary" name="btnBooking">Book this room</button>
         </form>

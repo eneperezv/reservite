@@ -1,7 +1,13 @@
 <?php
+// Iniciar sesión
+session_start();
 require_once __DIR__ . '/../../src/Services/ApiService.php';
 require_once __DIR__ . '/../../src/Services/Logger.php';
 use App\Services\Logger;
+    
+$config = require __DIR__ . '/../../src/Config/config.php';
+
+//echo 'token'.$_SESSION['auth_token'].'<br>';
 
 if(isset($_POST['btnBooking'])){
     $checkin    = $_POST['txtCheckin'].' 15:00:00';
@@ -9,7 +15,7 @@ if(isset($_POST['btnBooking'])){
     $expire     = $_POST['txtCheckin'].' 20:00:00';
     $roomnumber = $_POST['txtRoomnumber'];
     $idclient   = $_POST['txtIdClient'];
-    $idroom     = $_POST['txtIdroom'];
+    $idroom     = $_POST['txtIdRoom'];
     
     $room = [
         'id' => $idroom,
@@ -28,8 +34,7 @@ if(isset($_POST['btnBooking'])){
         'dateExpire' => $expire, 
         'dateCheckOut' => $checkout
     ];
-
-    $config = require __DIR__ . '/../../src/Config/config.php';
+    //echo var_dump($data);
 
     $logger = new Logger();
     $token = $_SESSION['auth_token'] ?? null;
@@ -46,6 +51,9 @@ if(isset($_POST['btnBooking'])){
     }
     $booking = $response;
 
-    echo var_dump($booking);
+    //echo var_dump($booking);
+
+    header('Location: ../dash.php?page=main&opc=ok');
+    
 }
 ?>
