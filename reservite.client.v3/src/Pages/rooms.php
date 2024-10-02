@@ -258,7 +258,7 @@ $idroom = 0;
                 </div>
             </div>
             <input type="hidden" value="<?php print $_GET['booking']; ?>" name="txtRoomnumber">
-            <input type="hidden" value="<?php print $_GET['client']; ?>" name="txtIdClient">
+            <input type="hidden" value="<?php isset($_GET['client']) ? print $_GET['client'] : print ''; ?>" name="txtIdClient">
             <br><br>
             <button type="submit" class="btn btn-primary" name="btnBooking">Book this room</button>
         </form>

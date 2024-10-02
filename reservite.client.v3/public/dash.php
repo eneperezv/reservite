@@ -132,6 +132,12 @@ if (!isset($_SESSION['auth_token'])) {
             font-weight:bold;
             padding-right:25px;
         }
+        .myAlert-top{
+            position: fixed;
+            top: 8%; 
+            right: 1%;
+            width: 30%;
+        }
     </style>
     <script>
         function tableFilter() {
@@ -308,5 +314,28 @@ if (!isset($_SESSION['auth_token'])) {
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script>
     <script src="assets/js/dashboard.js"></script>
+
+    <?php
+    if(isset($_GET['opc'])){
+        if($_GET['opc']=='ok'){
+            ?>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <div class="myAlert-top alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Very good!</strong> A reservation has been successfully registered.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    window.setTimeout(function() {
+                        $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+                            $(this).remove(); 
+                        });
+                    }, 3000);
+                });
+            </script>
+            <?php
+        }
+    }
+    ?>
 </body>
 </html>

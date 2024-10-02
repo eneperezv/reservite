@@ -53,7 +53,7 @@ if(isset($_POST['btnBooking'])){
 
     //echo var_dump($booking);
 
-    header('Location: ../dash.php?page=main&opc=ok');
+    header('Location: ../../public/dash.php?page=main&opc=ok');
     
 }
 ?>
