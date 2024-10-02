@@ -67,6 +67,7 @@ if(isset($_GET['booking'])){
     $clientes = $responseCli;
     $book = true;
 }
+$idroom = 0;
 ?>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <?php
@@ -134,7 +135,7 @@ if(isset($_GET['booking'])){
     }
     if($book){
         ?>
-        <form method="POST">
+        <form method="POST" action="../src/Pages/booking.php">
             <div class="bd-example-snippet bd-code-snippet">
                 <div class="bd-example m-0 border-0">
                     <nav>
@@ -146,8 +147,13 @@ if(isset($_GET['booking'])){
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
                             <?php if (!empty($rooms)): ?>
                                 <?php foreach ($rooms as $room): ?>
+                                    <?php 
+                                    //echo var_dump($room);
+                                    $idroom = $room['id']; 
+                                    ?>
                                     <div class="col-12">
                                         <div class="row g-3">
                                             <div class="col-sm-4">
@@ -235,30 +241,33 @@ if(isset($_GET['booking'])){
                         </div>
                         <div class="tab-pane fade" id="nav-date" role="tabpanel" aria-labelledby="nav-date-tab">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-6">
                                     <label for="txtCheckin" class="form-label">CheckIn</label>
                                     <input type="date" name="txtCheckin" id="txtCheckin" class="form-control">
                                 </div>
-                                <div class="col-4">
+                                <div class="col-6">
                                     <label for="txtCheckout" class="form-label">CheckOut</label>
                                     <input type="date" name="txtCheckout" id="txtCheckout" class="form-control">
                                 </div>
+                                <?php /*
                                 <div class="col-4">
                                     <label for="txtCheckexpire" class="form-label">Expire</label>
-                                    <input type="date" name="txtCheckexpire" id="txtCheckexpire" class="form-control">
+                                    <input type="date" name="txtExpire" id="txtCheckexpire" class="form-control">
                                 </div>
+                                */ ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <input type="hidden" value="<?php print $_GET['booking']; ?>" name="txtRoomnumber">
-            <input type="hidden" value="<?php print $_GET['client']; ?>" name="txtIdClient">
+            <input type="text" value="<?php print $_GET['booking']; ?>" name="txtRoomnumber">
+            <input type="text" value="<?php print $idroom; ?>" name="txtIdroom">
+            <input type="text" value="<?php print $_GET['client']; ?>" name="txtIdClient">
             <br><br>
-            <button type="submit" class="btn btn-primary">Book this room</button>
+            <button type="submit" class="btn btn-primary" name="btnBooking">Book this room</button>
         </form>
         <?php
-    }
+    } 
     ?>
     <br><br><br><br>
 </main>

@@ -26,6 +26,7 @@ return [
         'get_rooms_by_number' => '/room/by-number/',
         'get_dashboard_data' => '/dashboard',
         'get_notifications' => '/notification',
+        'post_booking' => '/booking',
         'create_reservation' => '/reservations',
     ],
     'timezone' => 'America/Bogota',  // Configuración del timezone
